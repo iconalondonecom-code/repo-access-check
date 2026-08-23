@@ -1,0 +1,130 @@
+import { Link } from "@tanstack/react-router";
+import { Mail, MapPin, Phone } from "lucide-react";
+
+import { categories } from "@/lib/catalog";
+import { mainNav, site } from "@/lib/site";
+import logo from "@/assets/products/ronfit-forte-logo.png.asset.json";
+
+export function SiteFooter() {
+  return (
+    <footer className="mt-24 bg-charcoal text-charcoal-foreground curve-top">
+      <div className="container-page grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4 lg:py-20">
+        <div>
+          <img
+            src={logo.url}
+            alt="Ronfit Forte logo"
+            width={180}
+            height={54}
+            loading="lazy"
+            className="h-10 w-auto brightness-0 invert"
+          />
+          <p className="mt-4 text-sm text-charcoal-foreground/70">{site.tagline}</p>
+          <p className="mt-4 max-w-xs text-sm leading-relaxed text-charcoal-foreground/60">
+            A healthcare portfolio spanning nutrition, paediatric care, cold and flu, pain
+            management, topical care and dermatology — presented for international business
+            partners.
+          </p>
+        </div>
+
+        <nav aria-label="Quick links">
+          <h2 className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-charcoal-foreground/50">
+            Quick Links
+          </h2>
+          <ul className="mt-4 space-y-2.5">
+            {mainNav.map((item) => (
+              <li key={item.label}>
+                <Link
+                  to={item.to}
+                  className="text-sm text-charcoal-foreground/80 transition-colors hover:text-primary"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <nav aria-label="Product categories">
+          <h2 className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-charcoal-foreground/50">
+            Product Categories
+          </h2>
+          <ul className="mt-4 space-y-2.5">
+            {categories.map((c) => (
+              <li key={c.slug}>
+                <Link
+                  to="/product-category/$slug"
+                  params={{ slug: c.slug }}
+                  className="text-sm text-charcoal-foreground/80 transition-colors hover:text-primary"
+                >
+                  {c.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div>
+          <h2 className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-charcoal-foreground/50">
+            Contact
+          </h2>
+          <address className="mt-4 space-y-4 text-sm not-italic text-charcoal-foreground/80">
+            <p className="flex gap-2.5">
+              <MapPin className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+              <span>
+                {site.address.lines.map((l) => (
+                  <span key={l} className="block">
+                    {l}
+                  </span>
+                ))}
+                <span className="block">
+                  {site.address.city}, {site.address.region} {site.address.postalCode}
+                </span>
+                <span className="block">{site.address.country}</span>
+              </span>
+            </p>
+            <p className="flex items-center gap-2.5">
+              <Mail className="size-4 shrink-0 text-primary" aria-hidden="true" />
+              <a href={`mailto:${site.email}`} className="transition-colors hover:text-primary">
+                {site.email}
+              </a>
+            </p>
+            <p className="flex items-center gap-2.5">
+              <Phone className="size-4 shrink-0 text-primary" aria-hidden="true" />
+              <a
+                href={`tel:${site.phone.replace(/\s/g, "")}`}
+                className="transition-colors hover:text-primary"
+              >
+                {site.phone}
+              </a>
+            </p>
+          </address>
+          <a
+            href={site.parent.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-block text-sm font-semibold text-primary transition-opacity hover:opacity-80"
+          >
+            {site.parent.label} →
+          </a>
+        </div>
+      </div>
+
+      <div className="border-t border-charcoal-foreground/10">
+        <div className="container-page flex flex-col gap-3 py-6 text-xs text-charcoal-foreground/55 sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            © {new Date().getFullYear()} {site.name}. A brand of {site.parent.name}, Vadodara,
+            India.
+          </p>
+          <div className="flex gap-5">
+            <Link to="/privacy-policy" className="transition-colors hover:text-primary">
+              Privacy Policy
+            </Link>
+            <Link to="/terms-and-conditions" className="transition-colors hover:text-primary">
+              Terms &amp; Conditions
+            </Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
