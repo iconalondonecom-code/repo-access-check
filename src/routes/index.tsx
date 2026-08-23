@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { categories, featuredProducts, products } from "@/lib/catalog";
 import { site } from "@/lib/site";
-import hero from "@/assets/site/ronfit-brand-campaign-hero.png.asset.json";
+import hero from "@/assets/site/ronfit-forte-homepage-hero.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
