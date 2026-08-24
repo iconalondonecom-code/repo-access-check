@@ -12,7 +12,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/90 backdrop-blur-md">
-      <div className="container-page flex h-16 items-center justify-between gap-4 md:h-20">
+      <div className="container-page flex h-20 items-center justify-between gap-4 md:h-24">
         <Logo />
 
         <nav aria-label="Main navigation" className="hidden items-center gap-1 lg:flex">
