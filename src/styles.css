@@ -207,6 +207,27 @@
   border-radius: 6rem 6rem 6rem 6rem;
 }
 
+/* Curved image frame used for hero and editorial visuals */
+@utility lozenge-frame {
+  overflow: hidden;
+  border-radius: 5rem 1.75rem 5rem 1.75rem;
+  background-color: var(--color-card);
+  box-shadow: var(--shadow-lift);
+}
+
+/* Small uppercase eyebrow label above section headings */
+@utility pill-label {
+  display: inline-block;
+  border-radius: 999px;
+  background-color: color-mix(in oklab, var(--color-primary) 12%, transparent);
+  padding: 0.35rem 0.9rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
 @utility container-page {
   width: 100%;
   margin-inline: auto;
