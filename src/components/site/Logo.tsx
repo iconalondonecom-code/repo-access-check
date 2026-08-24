@@ -2,35 +2,30 @@ import { Link } from "@tanstack/react-router";
 import logo from "@/assets/products/ronfit-forte-logo.png.asset.json";
 import { site } from "@/lib/site";
 
+/**
+ * Brand mark only — no text beside the logo.
+ * `size` controls the rendered height so header and footer can differ.
+ */
 export function Logo({
   className = "",
-  showTagline = true,
-  invert = false,
+  size = "header",
 }: {
   className?: string;
-  showTagline?: boolean;
-  invert?: boolean;
+  size?: "header" | "footer";
 }) {
   return (
-    <Link to="/" className={`flex items-center gap-3 ${className}`} aria-label={`${site.name} — home`}>
+    <Link to="/" className={`inline-flex items-center ${className}`} aria-label={`${site.name} — home`}>
       <img
         src={logo.url}
         alt="Ronfit Forte logo"
-        width={160}
-        height={48}
-        className="h-9 w-auto md:h-10"
+        width={320}
+        height={96}
+        className={
+          size === "header"
+            ? "h-14 w-auto md:h-[4.5rem] lg:h-20"
+            : "h-12 w-auto md:h-14"
+        }
       />
-      {showTagline ? (
-        <span
-          className={`hidden text-[0.6rem] font-medium uppercase leading-tight tracking-[0.14em] lg:block ${
-            invert ? "text-charcoal-foreground/60" : "text-muted-foreground"
-          }`}
-        >
-          A Brand of
-          <br />
-          Ronak Group
-        </span>
-      ) : null}
     </Link>
   );
 }

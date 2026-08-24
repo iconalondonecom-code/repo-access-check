@@ -234,3 +234,27 @@
   max-width: 80rem;
   padding-inline: 1.25rem;
 }
+
+/* Soft flowing red ribbon used behind hero and global sections */
+@utility brand-swoosh {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 90% at 92% 8%, color-mix(in oklab, var(--color-primary) 92%, white 8%) 0%, transparent 58%),
+    radial-gradient(90% 70% at 78% 96%, color-mix(in oklab, var(--color-primary) 70%, white 30%) 0%, transparent 55%);
+  opacity: 0.9;
+}
+
+/* Rounded curved section wrapper (curved top and bottom) */
+@utility curve-section {
+  border-radius: 4rem;
+}
+
+/* Premium soft card used for category and product tiles */
+@utility soft-card {
+  border-radius: 2.25rem;
+  background-color: var(--color-card);
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
