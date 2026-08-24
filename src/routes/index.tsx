@@ -49,19 +49,10 @@ export default function HomePage() {
     <main>
       {/* ---------------- Hero ---------------- */}
       <section className="relative overflow-hidden bg-background">
-        <div
-          aria-hidden
-          className="absolute -right-40 -top-32 hidden h-[46rem] w-[62rem] rounded-[50%] bg-primary/95 lg:block"
-        />
-        <div
-          aria-hidden
-          className="absolute -right-24 top-24 hidden h-[34rem] w-[46rem] rounded-[50%] bg-background lg:block"
-        />
-
-        <div className="container-page relative grid items-center gap-10 py-14 lg:grid-cols-[1fr_1.15fr] lg:py-24">
+        <div className="container-page relative grid items-center gap-10 py-14 lg:grid-cols-[1fr_1.1fr] lg:py-24">
           <div className="relative z-10">
             <p className="pill-label">{site.tagline}</p>
-            <h1 className="mt-6 text-4xl font-semibold leading-[1.04] tracking-tight text-foreground sm:text-5xl lg:text-[3.6rem]">
+            <h1 className="mt-6 text-4xl font-semibold leading-[1.04] tracking-tight text-foreground sm:text-5xl lg:text-[3.4rem]">
               Trusted Healthcare.
               <br />
               Global Partnerships.
@@ -90,7 +81,11 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="relative z-10">
+          <div className="relative">
+            <div
+              aria-hidden
+              className="absolute -right-16 -top-12 -z-10 hidden h-[34rem] w-[34rem] rounded-[50%] bg-primary/90 lg:block"
+            />
             <picture>
               <source media="(min-width: 768px)" srcSet={hero.url} />
               <img
@@ -98,12 +93,13 @@ export default function HomePage() {
                 alt="Ronfit Forte healthcare product range on a curved brand stage"
                 width={1600}
                 height={1200}
-                className="w-full rounded-[3rem] object-cover shadow-lift lg:rounded-[4rem]"
+                className="relative w-full rounded-[3rem] object-cover shadow-lift lg:rounded-[4rem]"
               />
             </picture>
           </div>
         </div>
       </section>
+
 
       {/* ---------------- Categories ---------------- */}
       <section className="container-page py-16 lg:py-24">
