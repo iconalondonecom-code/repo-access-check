@@ -6,24 +6,73 @@ interface PageHeroProps {
   title: ReactNode;
   intro?: string;
   image?: { url: string; alt: string };
+  /** "split" keeps text and image side by side; "banner" uses the image as a large full-width background. */
+  variant?: "split" | "banner";
   children?: ReactNode;
 }
 
-export function PageHero({ eyebrow, title, intro, image, children }: PageHeroProps) {
+export function PageHero({
+  eyebrow,
+  title,
+  intro,
+  image,
+  variant = "split",
+  children,
+}: PageHeroProps) {
+  if (image && variant === "banner") {
+    return (
+      <section className="relative isolate overflow-hidden curve-bottom bg-charcoal">
+        <img
+          src={image.url}
+          alt={image.alt}
+          width={2000}
+          height={1000}
+          className="absolute inset-0 size-full object-cover"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-r from-charcoal/92 via-charcoal/75 to-charcoal/25"
+        />
+        <div
+          aria-hidden
+          className="absolute -left-24 bottom-[-40%] h-[36rem] w-[46rem] rounded-[50%] bg-primary/30 blur-3xl"
+        />
+        <div className="container-page relative flex min-h-[26rem] flex-col justify-center py-20 lg:min-h-[34rem] lg:py-28">
+          <p className="inline-block w-fit rounded-full bg-primary px-4 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary-foreground">
+            {eyebrow}
+          </p>
+          <h1 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tight text-charcoal-foreground sm:text-5xl lg:text-6xl">
+            {title}
+          </h1>
+          {intro ? (
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-charcoal-foreground/80">
+              {intro}
+            </p>
+          ) : null}
+          {children}
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section className="bg-secondary">
+    <section className="relative overflow-hidden bg-secondary curve-bottom">
       <div
-        className={`container-page grid items-center gap-10 py-14 lg:py-20 ${
-          image ? "lg:grid-cols-2" : ""
+        aria-hidden
+        className="absolute -right-32 -top-40 size-[38rem] rounded-[50%] bg-primary/10 blur-3xl"
+      />
+      <div
+        className={`container-page relative grid items-center gap-12 py-16 lg:py-24 ${
+          image ? "lg:grid-cols-[0.95fr_1.05fr]" : ""
         }`}
       >
         <div>
           <p className="pill-label">{eyebrow}</p>
-          <h1 className="mt-5 text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+          <h1 className="mt-5 text-4xl font-semibold leading-[1.06] tracking-tight text-foreground sm:text-5xl lg:text-[3.4rem]">
             {title}
           </h1>
           {intro ? (
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">{intro}</p>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">{intro}</p>
           ) : null}
           {children}
         </div>
@@ -32,8 +81,8 @@ export function PageHero({ eyebrow, title, intro, image, children }: PageHeroPro
             <img
               src={image.url}
               alt={image.alt}
-              width={1200}
-              height={900}
+              width={1600}
+              height={1100}
               className="h-full w-full object-cover"
             />
           </div>
