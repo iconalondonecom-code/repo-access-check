@@ -148,7 +148,7 @@ export function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
                       className="absolute inset-0"
                       style={{
                         backgroundImage:
-                          "linear-gradient(to right, var(--background) 0%, var(--background) 26%, transparent 40%)",
+                          "linear-gradient(to right, var(--background) 0%, var(--background) 18%, transparent 34%)",
                       }}
                     />
 
