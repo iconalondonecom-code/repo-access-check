@@ -9,18 +9,20 @@
  * territories or facilities.
  */
 
-import globalImg from "@/assets/site/ronfit-global-business-background.png.asset.json";
-import partnershipImg from "@/assets/site/ronfit-business-partnership-background.png.asset.json";
-import lifeStagesImg from "@/assets/site/ronfit-healthcare-life-stages.png.asset.json";
-import brandStoryImg from "@/assets/site/ronfit-forte-brand-story.png.asset.json";
-import groupImg from "@/assets/site/ronak-group-section-background.png.asset.json";
-import coldImg from "@/assets/site/ronfit-cold-flu-nasal-care-category.png.asset.json";
-import coughImg from "@/assets/site/ronfit-cough-throat-care-category.png.asset.json";
-import infantImg from "@/assets/site/ronfit-infant-nutrition-category.png.asset.json";
-import paediatricImg from "@/assets/site/ronfit-paediatric-care-category.png.asset.json";
-import topicalImg from "@/assets/site/ronfit-topical-pain-relief-category.png.asset.json";
-import dermaImg from "@/assets/site/ronfit-skin-dermatology-category.png.asset.json";
-import painImg from "@/assets/site/ronfit-pain-fever-headache-category.png.asset.json";
+import {
+  globalBg as globalImg,
+  partnershipBg as partnershipImg,
+  lifeStages as lifeStagesImg,
+  brandStory as brandStoryImg,
+  groupBg as groupImg,
+  coldImg,
+  coughImg,
+  infantImg,
+  paediatricImg,
+  topicalImg,
+  dermaImg,
+  painImg,
+} from "@/lib/assets";
 
 export interface Insight {
   slug: string;

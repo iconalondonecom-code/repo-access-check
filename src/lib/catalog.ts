@@ -11,48 +11,49 @@
  * sizes, regulatory status or manufacturing claims are invented.
  */
 
-import infantImg from "@/assets/site/ronfit-infant-nutrition-category.png.asset.json";
-import paediatricImg from "@/assets/site/ronfit-paediatric-care-category.png.asset.json";
-import coldImg from "@/assets/site/ronfit-cold-flu-nasal-care-category.png.asset.json";
-import coughImg from "@/assets/site/ronfit-cough-throat-care-category.png.asset.json";
-import painImg from "@/assets/site/ronfit-pain-fever-headache-category.png.asset.json";
-import topicalImg from "@/assets/site/ronfit-topical-pain-relief-category.png.asset.json";
-import dermaImg from "@/assets/site/ronfit-skin-dermatology-category.png.asset.json";
-
-import babyS1 from "@/assets/products/ronfit-baby-stage-1-1-6-months.png.asset.json";
-import babyS2 from "@/assets/products/ronfit-baby-stage-2-6-12-months.png.asset.json";
-import babyS3 from "@/assets/products/ronfit-baby-stage-3-12-months-onwards.png.asset.json";
-import junior from "@/assets/products/ronfit-junior.png.asset.json";
-import cJuniorSyrup from "@/assets/products/ronfit-c-junior-syrup.png.asset.json";
-import coldPSyrup from "@/assets/products/ronfit-cold-p-syrup.png.asset.json";
-import cold from "@/assets/products/ronfit-cold.png.asset.json";
-import coldExtra from "@/assets/products/ronfit-cold-extra.png.asset.json";
-import coldW from "@/assets/products/ronfit-cold-w.png.asset.json";
-import coldDSyrup from "@/assets/products/ronfit-cold-d-syrup.png.asset.json";
-import coldForteSyrup from "@/assets/products/ronfit-cold-forte-syrup.png.asset.json";
-import coldForteInhaler from "@/assets/products/ronfit-cold-forte-inhaler.png.asset.json";
-import coldFluNight from "@/assets/products/ronfit-cold-flu-night-tablets.png.asset.json";
-import coldInfluenza from "@/assets/products/ronfit-cold-for-symptomatic-relief-of-influenza.png.asset.json";
-import lozenges from "@/assets/products/ronfit-cold-flu-lozenges.png.asset.json";
-import cSyrup from "@/assets/products/ronfit-c-syrup.png.asset.json";
-import cForte from "@/assets/products/ronfit-c-forte.png.asset.json";
-import forte from "@/assets/products/ronfit-forte.png.asset.json";
-import painFeverTablet from "@/assets/products/ronfit-forte-pain-fever-heache-tablet.png.asset.json";
-import par from "@/assets/products/ronfit-par.png.asset.json";
-import extra from "@/assets/products/ronfit-extra.png.asset.json";
-import plus from "@/assets/products/ronfit-plus.png.asset.json";
-import plusEffective from "@/assets/products/ronfit-plus-effective-relief.png.asset.json";
-import quickRelief from "@/assets/products/ronfit-forte-quick-relief.png.asset.json";
-import painGel30 from "@/assets/products/ronfit-forte-pain-gel-30g.png.asset.json";
-import painGel50 from "@/assets/products/ronfit-forte-pain-gel-50g.png.asset.json";
-import iceSuper from "@/assets/products/ronfit-forte-ice-cold-gel-super-strength.png.asset.json";
-import iceExtra from "@/assets/products/ronfit-forte-ice-cold-gel-extra-strong.png.asset.json";
-import iceAloe from "@/assets/products/ronfit-forte-ice-cold-gel-with-aloevera.png.asset.json";
-import iceMenthol from "@/assets/products/ronfit-forte-ice-cold-gel-with-menthol.png.asset.json";
-import spray from "@/assets/products/ronfit-forte-spray-instant-pain-relief.png.asset.json";
-import balm from "@/assets/products/ronfit-forte-cold-pain-relief-balm.png.asset.json";
-import tripleCream from "@/assets/products/ronfit-triple-action-cream.png.asset.json";
-import triplePowder from "@/assets/products/ronfit-triple-action-dusting-powder.png.asset.json";
+import {
+  infantImg,
+  paediatricImg,
+  coldImg,
+  coughImg,
+  painImg,
+  topicalImg,
+  dermaImg,
+  babyS1,
+  babyS2,
+  babyS3,
+  junior,
+  cJuniorSyrup,
+  coldPSyrup,
+  cold,
+  coldExtra,
+  coldW,
+  coldDSyrup,
+  coldForteSyrup,
+  coldForteInhaler,
+  coldFluNight,
+  coldInfluenza,
+  lozenges,
+  cSyrup,
+  cForte,
+  forte,
+  painFeverTablet,
+  par,
+  extra,
+  plus,
+  plusEffective,
+  quickRelief,
+  painGel30,
+  painGel50,
+  iceSuper,
+  iceExtra,
+  iceAloe,
+  iceMenthol,
+  spray,
+  balm,
+  tripleCream,
+  triplePowder,
+} from "@/lib/assets";
 
 export type CategorySlug =
   | "infant-nutrition"

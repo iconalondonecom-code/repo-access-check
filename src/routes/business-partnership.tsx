@@ -3,7 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { EnquiryCTA } from "@/components/site/EnquiryCTA";
 import { categories } from "@/lib/catalog";
-import partnershipBg from "@/assets/site/ronfit-business-partnership-background.png.asset.json";
+import { partnershipBg } from "@/lib/assets";
 
 export const Route = createFileRoute("/business-partnership")({
   head: () => ({

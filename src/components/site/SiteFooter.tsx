@@ -3,7 +3,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 
 import { categories } from "@/lib/catalog";
 import { mainNav, site } from "@/lib/site";
-import logo from "@/assets/products/ronfit-forte-logo.png.asset.json";
+import { logo } from "@/lib/assets";
 
 export function SiteFooter() {
   return (

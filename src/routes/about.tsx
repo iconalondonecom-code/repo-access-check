@@ -4,9 +4,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { EnquiryCTA } from "@/components/site/EnquiryCTA";
 import { categories, products } from "@/lib/catalog";
 import { site } from "@/lib/site";
-import brandStory from "@/assets/site/ronfit-forte-brand-story.png.asset.json";
-import lifeStages from "@/assets/site/ronfit-healthcare-life-stages.png.asset.json";
-import groupBg from "@/assets/site/ronak-group-section-background.png.asset.json";
+import { brandStory, lifeStages, groupBg } from "@/lib/assets";
 
 export const Route = createFileRoute("/about")({
   head: () => ({

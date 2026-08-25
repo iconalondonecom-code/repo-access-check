@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import logo from "@/assets/products/ronfit-forte-logo.png.asset.json";
+import { logo } from "@/lib/assets";
 import { site } from "@/lib/site";
 
 /**

@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { EnquiryCTA } from "@/components/site/EnquiryCTA";
 import { businessTypes } from "@/lib/site";
-import globalBg from "@/assets/site/ronfit-global-business-background.png.asset.json";
+import { globalBg } from "@/lib/assets";
 
 export const Route = createFileRoute("/global-business")({
   head: () => ({

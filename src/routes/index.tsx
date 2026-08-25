@@ -4,13 +4,15 @@ import { ArrowRight } from "lucide-react";
 import { categories, featuredProducts, products } from "@/lib/catalog";
 import { insights } from "@/lib/insights";
 import { site } from "@/lib/site";
-import hero from "@/assets/site/ronfit-forte-homepage-hero.png.asset.json";
-import mobileHero from "@/assets/site/ronfit-forte-mobile-hero.png.asset.json";
-import lifeStages from "@/assets/site/ronfit-healthcare-life-stages.png.asset.json";
-import globalBg from "@/assets/site/ronfit-global-business-background.png.asset.json";
-import groupBg from "@/assets/site/ronak-group-section-background.png.asset.json";
-import groupLogo from "@/assets/products/ronak-group-logo.png.asset.json";
-import partnershipBg from "@/assets/site/ronfit-business-partnership-background.png.asset.json";
+import {
+  hero,
+  mobileHero,
+  lifeStages,
+  globalBg,
+  groupBg,
+  groupLogo,
+  partnershipBg,
+} from "@/lib/assets";
 
 export const Route = createFileRoute("/")({
   head: () => ({
