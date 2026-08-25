@@ -18,12 +18,12 @@ export function Logo({
       <img
         src={logo.url}
         alt="Ronfit Forte logo"
-        width={320}
-        height={96}
+        width={480}
+        height={144}
         className={
           size === "header"
-            ? "h-14 w-auto md:h-[4.5rem] lg:h-20"
-            : "h-12 w-auto md:h-14"
+            ? "h-[5.5rem] w-auto md:h-28 lg:h-32"
+            : "h-20 w-auto md:h-24"
         }
       />
     </Link>
