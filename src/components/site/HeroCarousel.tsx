@@ -15,10 +15,19 @@ export interface HeroSlide {
   secondaryCta: { label: string; category: CategorySlug | null };
 }
 
+const ARROW_BUTTON =
+  "absolute top-1/2 z-20 flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/90 text-foreground shadow-soft transition-transform hover:scale-105";
+
 /**
- * Premium curved-brand hero carousel. Every slide shares the same decorative
- * swoosh/frame treatment (see the parent section) so the brand system reads
- * as one identity across slides, not five unrelated banners.
+ * Premium curved-brand hero carousel.
+ *
+ * Every source image was generated with empty space on the LEFT and the
+ * product composition on the RIGHT, specifically so it can run edge-to-edge
+ * as a background with copy overlaid on the clean left portion. The image
+ * is never cropped: object-fit: contain + object-position: right means the
+ * whole photo is always shown, anchored to the right edge, with the frame's
+ * own background (which matches the images' light studio backdrop) filling
+ * any letterboxed space on the left — exactly where the text sits.
  */
 export function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
   const [api, setApi] = useState<CarouselApi>();
@@ -44,65 +53,71 @@ export function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
         setApi={setApi}
       >
         <CarouselContent className="-ml-0">
-          {slides.map((slide, i) => (
-            <CarouselItem key={slide.id} className="pl-0">
-              <div
-                aria-hidden={i !== selected}
-                className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.3fr] lg:gap-6"
-              >
-                <div className="relative z-10">
-                  <p className="pill-label">{site.tagline}</p>
-                  <p className="mt-6 text-4xl font-semibold leading-[1.04] tracking-tight text-foreground sm:text-5xl lg:text-[3.6rem]">
-                    {slide.headline}
-                  </p>
-                  <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                    {slide.copy}
-                  </p>
-                  <div className="mt-9 flex flex-wrap gap-3">
-                    <Link
-                      to="/business-enquiry"
-                      className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-4 text-sm font-semibold text-primary-foreground shadow-soft transition-transform hover:scale-[1.02]"
-                    >
-                      Send Business Enquiry <ArrowRight className="size-4" aria-hidden />
-                    </Link>
-                    {slide.secondaryCta.category ? (
-                      <Link
-                        to="/product-category/$slug"
-                        params={{ slug: slide.secondaryCta.category }}
-                        className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-background px-7 py-4 text-sm font-semibold text-primary transition-colors hover:bg-accent"
-                      >
-                        {slide.secondaryCta.label} <ArrowRight className="size-4" aria-hidden />
-                      </Link>
-                    ) : (
-                      <Link
-                        to="/products"
-                        className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-background px-7 py-4 text-sm font-semibold text-primary transition-colors hover:bg-accent"
-                      >
-                        {slide.secondaryCta.label} <ArrowRight className="size-4" aria-hidden />
-                      </Link>
-                    )}
-                  </div>
-                </div>
+          {slides.map((slide, i) => {
+            const ctas = (
+              <>
+                <Link
+                  to="/business-enquiry"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-primary px-5 py-3 text-xs font-semibold text-primary-foreground shadow-soft transition-transform hover:scale-[1.02] sm:text-sm lg:px-6 lg:py-3.5"
+                >
+                  Send Business Enquiry <ArrowRight className="size-3.5" aria-hidden />
+                </Link>
+                {slide.secondaryCta.category ? (
+                  <Link
+                    to="/product-category/$slug"
+                    params={{ slug: slide.secondaryCta.category }}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-background px-5 py-3 text-xs font-semibold text-primary transition-colors hover:bg-accent sm:text-sm lg:px-6 lg:py-3.5"
+                  >
+                    {slide.secondaryCta.label} <ArrowRight className="size-3.5" aria-hidden />
+                  </Link>
+                ) : (
+                  <Link
+                    to="/products"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-background px-5 py-3 text-xs font-semibold text-primary transition-colors hover:bg-accent sm:text-sm lg:px-6 lg:py-3.5"
+                  >
+                    {slide.secondaryCta.label} <ArrowRight className="size-3.5" aria-hidden />
+                  </Link>
+                )}
+              </>
+            );
 
-                <div className="relative">
-                  <div
-                    aria-hidden
-                    className="absolute -right-20 -top-16 -z-10 hidden h-[38rem] w-[38rem] rounded-[50%] bg-primary/90 lg:block"
-                  />
-                  <div
-                    aria-hidden
-                    className="absolute -bottom-10 -left-10 -z-10 hidden h-64 w-64 rounded-[50%] bg-charcoal/10 lg:block"
-                  />
+            const arrows = (
+              <>
+                <button
+                  type="button"
+                  aria-label="Previous slide"
+                  onClick={() => api?.scrollPrev()}
+                  className={`${ARROW_BUTTON} left-3`}
+                >
+                  <ArrowLeft className="size-4" aria-hidden />
+                </button>
+                <button
+                  type="button"
+                  aria-label="Next slide"
+                  onClick={() => api?.scrollNext()}
+                  className={`${ARROW_BUTTON} right-3`}
+                >
+                  <ArrowRight className="size-4" aria-hidden />
+                </button>
+              </>
+            );
 
-                  {/* Fixed-size, clipped frame — identical for every slide. object-contain
-                      guarantees the full product composition is always visible (no
-                      cropping, no stretching); any letterbox space is filled by the
-                      frame's own background rather than distorting the image. */}
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[3rem] bg-secondary/50 shadow-lift sm:aspect-[16/11] lg:aspect-auto lg:h-[32rem] lg:rounded-[4rem]">
-                    <picture>
-                      {slide.image.mobile ? (
-                        <source media="(min-width: 768px)" srcSet={slide.image.desktop} />
-                      ) : null}
+            return (
+              <CarouselItem key={slide.id} className="pl-0">
+                <div aria-hidden={i !== selected}>
+                  {/* Mobile: text stacked above the product image (no overlay — the
+                      narrow width doesn't leave room to keep both legible). */}
+                  <div className="md:hidden">
+                    <p className="pill-label">{site.tagline}</p>
+                    <p className="mt-5 text-3xl font-semibold leading-[1.06] tracking-tight text-foreground">
+                      {slide.headline}
+                    </p>
+                    <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+                      {slide.copy}
+                    </p>
+                    <div className="mt-6 flex flex-wrap gap-3">{ctas}</div>
+
+                    <div className="relative mt-8 aspect-[4/3] w-full overflow-hidden rounded-[3rem] bg-background shadow-lift">
                       <img
                         src={slide.image.mobile ?? slide.image.desktop}
                         alt={slide.image.alt}
@@ -110,30 +125,44 @@ export function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
                         height={1200}
                         className="absolute inset-0 size-full object-contain object-right"
                       />
-                    </picture>
+                      {arrows}
+                    </div>
+                  </div>
 
-                    {/* Arrows: confined to this image frame only, never over the text column. */}
-                    <button
-                      type="button"
-                      aria-label="Previous slide"
-                      onClick={() => api?.scrollPrev()}
-                      className="absolute left-3 top-1/2 z-20 flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/90 text-foreground shadow-soft transition-transform hover:scale-105"
-                    >
-                      <ArrowLeft className="size-4" aria-hidden />
-                    </button>
-                    <button
-                      type="button"
-                      aria-label="Next slide"
-                      onClick={() => api?.scrollNext()}
-                      className="absolute right-3 top-1/2 z-20 flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/90 text-foreground shadow-soft transition-transform hover:scale-105"
-                    >
-                      <ArrowRight className="size-4" aria-hidden />
-                    </button>
+                  {/* Tablet/desktop: the image runs full-width as the hero's own
+                      background, with copy overlaid on its clean left portion. */}
+                  <div className="relative hidden overflow-hidden rounded-[3rem] bg-background shadow-lift md:block md:h-[22rem] lg:h-[28rem] lg:rounded-[4rem] xl:h-[34rem]">
+                    <img
+                      src={slide.image.desktop}
+                      alt={slide.image.alt}
+                      width={1600}
+                      height={1200}
+                      className="absolute inset-0 size-full object-contain object-right"
+                    />
+                    <div
+                      aria-hidden
+                      className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent"
+                    />
+
+                    <div className="relative z-10 flex h-full items-center px-8 lg:px-14">
+                      <div className="max-w-[38%]">
+                        <p className="pill-label">{site.tagline}</p>
+                        <p className="mt-4 text-xl font-semibold leading-[1.08] tracking-tight text-foreground lg:mt-5 lg:text-3xl xl:text-4xl">
+                          {slide.headline}
+                        </p>
+                        <p className="mt-3 text-xs leading-relaxed text-muted-foreground lg:mt-4 lg:text-sm">
+                          {slide.copy}
+                        </p>
+                        <div className="mt-5 flex flex-wrap gap-2 lg:mt-6 lg:gap-3">{ctas}</div>
+                      </div>
+                    </div>
+
+                    {arrows}
                   </div>
                 </div>
-              </div>
-            </CarouselItem>
-          ))}
+              </CarouselItem>
+            );
+          })}
         </CarouselContent>
       </Carousel>
 
