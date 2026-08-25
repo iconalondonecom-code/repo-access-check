@@ -137,11 +137,19 @@ export function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
                       alt={slide.image.alt}
                       width={1600}
                       height={1200}
-                      className="absolute inset-0 size-full object-contain object-right"
+                      className="absolute inset-0 size-full object-contain object-right [filter:contrast(1.05)_saturate(1.08)]"
                     />
+                    {/* Legibility scrim for the text column only — fully opaque
+                        behind the copy, then fades to fully transparent well
+                        before the product area so the right ~58% of the image
+                        stays at 100% opacity with no haze/blur/tint. */}
                     <div
                       aria-hidden
-                      className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent"
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(to right, var(--background) 0%, var(--background) 26%, transparent 40%)",
+                      }}
                     />
 
                     <div className="relative z-10 flex h-full items-center px-8 lg:px-14">
