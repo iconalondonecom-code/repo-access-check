@@ -100,7 +100,7 @@ function SearchPage() {
                       key={a.slug}
                       to="/insights/$slug"
                       params={{ slug: a.slug }}
-                      className="rounded-[1.75rem] border border-border bg-card p-6 transition-shadow hover:shadow-lift"
+                      className="rounded-[1.75rem] border border-border bg-card p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-lift"
                     >
                       <span className="text-xs font-semibold tracking-[0.18em] text-primary">
                         {a.topic}

@@ -93,42 +93,49 @@ export function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
                     aria-hidden
                     className="absolute -bottom-10 -left-10 -z-10 hidden h-64 w-64 rounded-[50%] bg-charcoal/10 lg:block"
                   />
-                  <picture>
-                    {slide.image.mobile ? (
-                      <source media="(min-width: 768px)" srcSet={slide.image.desktop} />
-                    ) : null}
-                    <img
-                      src={slide.image.mobile ?? slide.image.desktop}
-                      alt={slide.image.alt}
-                      width={1600}
-                      height={1200}
-                      className="relative aspect-[4/3] w-full rounded-[3rem] object-cover object-right shadow-lift sm:aspect-[16/11] lg:aspect-auto lg:h-[32rem] lg:rounded-[4rem]"
-                    />
-                  </picture>
+
+                  {/* Fixed-size, clipped frame — identical for every slide. object-contain
+                      guarantees the full product composition is always visible (no
+                      cropping, no stretching); any letterbox space is filled by the
+                      frame's own background rather than distorting the image. */}
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[3rem] bg-secondary/50 shadow-lift sm:aspect-[16/11] lg:aspect-auto lg:h-[32rem] lg:rounded-[4rem]">
+                    <picture>
+                      {slide.image.mobile ? (
+                        <source media="(min-width: 768px)" srcSet={slide.image.desktop} />
+                      ) : null}
+                      <img
+                        src={slide.image.mobile ?? slide.image.desktop}
+                        alt={slide.image.alt}
+                        width={1600}
+                        height={1200}
+                        className="absolute inset-0 size-full object-contain object-right"
+                      />
+                    </picture>
+
+                    {/* Arrows: confined to this image frame only, never over the text column. */}
+                    <button
+                      type="button"
+                      aria-label="Previous slide"
+                      onClick={() => api?.scrollPrev()}
+                      className="absolute left-3 top-1/2 z-20 flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/90 text-foreground shadow-soft transition-transform hover:scale-105"
+                    >
+                      <ArrowLeft className="size-4" aria-hidden />
+                    </button>
+                    <button
+                      type="button"
+                      aria-label="Next slide"
+                      onClick={() => api?.scrollNext()}
+                      className="absolute right-3 top-1/2 z-20 flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/90 text-foreground shadow-soft transition-transform hover:scale-105"
+                    >
+                      <ArrowRight className="size-4" aria-hidden />
+                    </button>
+                  </div>
                 </div>
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
       </Carousel>
-
-      {/* Arrows */}
-      <button
-        type="button"
-        aria-label="Previous slide"
-        onClick={() => api?.scrollPrev()}
-        className="absolute -left-2 top-[38%] z-20 hidden size-11 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/90 text-foreground shadow-soft transition-transform hover:scale-105 sm:flex lg:-left-4"
-      >
-        <ArrowLeft className="size-4" aria-hidden />
-      </button>
-      <button
-        type="button"
-        aria-label="Next slide"
-        onClick={() => api?.scrollNext()}
-        className="absolute -right-2 top-[38%] z-20 hidden size-11 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/90 text-foreground shadow-soft transition-transform hover:scale-105 sm:flex lg:-right-4"
-      >
-        <ArrowRight className="size-4" aria-hidden />
-      </button>
 
       {/* Pagination dots */}
       <div className="mt-8 flex items-center justify-center gap-2 lg:justify-start">

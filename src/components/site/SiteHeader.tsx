@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ChevronDown, Globe, Menu, X } from "lucide-react";
+import { toast } from "sonner";
 
 import { Logo } from "./Logo";
 import { categories } from "@/lib/catalog";
@@ -9,6 +10,18 @@ import { mainNav, site } from "@/lib/site";
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const [locale, setLocale] = useState<(typeof site.locales)[number]>(site.locales[0]);
+
+  const selectLocale = (l: (typeof site.locales)[number]) => {
+    setLocale(l);
+    setLangOpen(false);
+    if (l.code !== "en") {
+      toast(`${l.label} content is coming soon`, {
+        description: "The site is currently published in English — we're working on full translations.",
+      });
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/90 backdrop-blur-md">
@@ -20,14 +33,14 @@ export function SiteHeader() {
             item.label === "Products" ? (
               <div
                 key={item.label}
-                className="relative"
+                className="relative inline-flex items-center"
                 onMouseEnter={() => setProductsOpen(true)}
                 onMouseLeave={() => setProductsOpen(false)}
               >
                 <Link
                   to={item.to}
-                  className="flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground"
-                  activeProps={{ className: "font-semibold text-primary" }}
+                  className="inline-flex items-center gap-1 self-center rounded-full px-3 py-2 text-sm font-semibold leading-none text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground"
+                  activeProps={{ className: "font-bold text-primary" }}
                   aria-expanded={productsOpen}
                   onFocus={() => setProductsOpen(true)}
                 >
@@ -48,14 +61,16 @@ export function SiteHeader() {
                               to="/product-category/$slug"
                               params={{ slug: c.slug }}
                               onClick={() => setProductsOpen(false)}
-                              className="flex items-center gap-3 rounded-2xl px-3 py-2.5 transition-colors hover:bg-secondary"
+                              className="group flex items-center gap-3 rounded-2xl px-3 py-2.5 transition-colors hover:bg-secondary"
                             >
                               <span
-                                className={`flex size-9 shrink-0 items-center justify-center rounded-full ${c.accentClass} text-[0.65rem] font-semibold text-charcoal`}
+                                className={`flex size-9 shrink-0 items-center justify-center rounded-full ${c.accentClass} text-[0.65rem] font-semibold text-charcoal transition-transform duration-300 group-hover:scale-110`}
                               >
                                 {c.number}
                               </span>
-                              <span className="text-sm font-medium text-foreground">{c.name}</span>
+                              <span className="text-sm font-medium text-foreground transition-transform duration-300 group-hover:translate-x-0.5">
+                                {c.name}
+                              </span>
                             </Link>
                           </li>
                         ))}
@@ -75,8 +90,8 @@ export function SiteHeader() {
               <Link
                 key={item.label}
                 to={item.to}
-                className="rounded-full px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground"
-                activeProps={{ className: "font-semibold text-primary" }}
+                className="inline-flex items-center self-center rounded-full px-3 py-2 text-sm font-semibold leading-none text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground"
+                activeProps={{ className: "font-bold text-primary" }}
                 activeOptions={{ exact: item.to === "/" }}
               >
                 {item.label}
@@ -86,17 +101,46 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          {/* Translation-ready language selector: additional locales are added
-              through the CMS / translation layer rather than in code. */}
-          <button
-            type="button"
-            className="hidden items-center gap-1.5 rounded-full border border-border px-3 py-2 text-xs font-medium text-muted-foreground transition-colors hover:bg-secondary md:flex"
-            aria-label="Select language"
+          <div
+            className="relative hidden md:block"
+            onMouseEnter={() => setLangOpen(true)}
+            onMouseLeave={() => setLangOpen(false)}
           >
-            <Globe className="size-3.5" aria-hidden="true" />
-            {site.locales[0].label}
-            <ChevronDown className="size-3" aria-hidden="true" />
-          </button>
+            <button
+              type="button"
+              onClick={() => setLangOpen((v) => !v)}
+              className="flex items-center gap-1.5 rounded-full border border-border px-3 py-2 text-xs font-medium text-muted-foreground transition-colors hover:bg-secondary"
+              aria-label="Select language"
+              aria-expanded={langOpen}
+            >
+              <Globe className="size-3.5" aria-hidden="true" />
+              {locale.label}
+              <ChevronDown className="size-3" aria-hidden="true" />
+            </button>
+
+            {langOpen ? (
+              <div className="absolute right-0 top-full w-44 pt-2">
+                <ul className="overflow-hidden rounded-2xl border border-border bg-popover p-1.5 shadow-lift">
+                  {site.locales.map((l) => (
+                    <li key={l.code}>
+                      <button
+                        type="button"
+                        onClick={() => selectLocale(l)}
+                        aria-current={l.code === locale.code}
+                        className={`flex w-full items-center justify-between rounded-xl px-3 py-2 text-left text-sm transition-colors hover:bg-secondary ${
+                          l.code === locale.code
+                            ? "font-semibold text-primary"
+                            : "font-medium text-foreground"
+                        }`}
+                      >
+                        {l.label}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </div>
 
           <Link
             to="/business-enquiry"
@@ -125,8 +169,8 @@ export function SiteHeader() {
                 key={item.label}
                 to={item.to}
                 onClick={() => setOpen(false)}
-                className="rounded-2xl px-4 py-3 text-base font-medium text-foreground transition-colors hover:bg-secondary"
-                activeProps={{ className: "font-semibold text-primary" }}
+                className="rounded-2xl px-4 py-3 text-base font-semibold text-foreground transition-colors hover:bg-secondary"
+                activeProps={{ className: "font-bold text-primary" }}
                 activeOptions={{ exact: item.to === "/" }}
               >
                 {item.label}

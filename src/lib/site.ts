@@ -44,6 +44,9 @@ export const site = {
   },
   locales: [
     { code: "en", label: "English" },
+    { code: "ar", label: "العربية" },
+    { code: "fr", label: "Français" },
+    { code: "es", label: "Español" },
   ],
 } as const;
 

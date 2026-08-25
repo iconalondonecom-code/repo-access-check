@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 
-import { categories, featuredProducts, products } from "@/lib/catalog";
+import { categories, featuredProducts } from "@/lib/catalog";
 import { insights } from "@/lib/insights";
 import { canonicalUrl, site } from "@/lib/site";
 import {
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Ronfit Forte offers a seven-category healthcare portfolio — infant nutrition, paediatric, cold and flu, cough, pain relief, topical care and dermatology — for distributors and importers worldwide.",
+          "Ronfit Forte offers a structured healthcare portfolio across multiple categories — infant nutrition, paediatric, cold and flu, cough, pain relief, topical care and dermatology — for distributors and importers worldwide.",
       },
       { property: "og:title", content: "Ronfit Forte | Global B2B Healthcare Portfolio" },
       {
@@ -55,7 +55,7 @@ const heroSlides: HeroSlide[] = [
         <span className="text-primary">Stronger Together.</span>
       </>
     ),
-    copy: `Ronfit Forte presents ${products.length} healthcare products across ${categories.length} therapeutic categories, organised so distributors, importers, wholesalers and pharmacy networks can evaluate the range quickly and start a conversation with our team.`,
+    copy: "Ronfit Forte presents healthcare products across multiple therapeutic categories, organised so distributors, importers, wholesalers and pharmacy networks can evaluate the range quickly and start a conversation with our team.",
     image: {
       desktop: hero.url,
       mobile: mobileHero.url,
@@ -123,7 +123,7 @@ export default function HomePage() {
         <div className="max-w-2xl">
           <p className="pill-label">Portfolio</p>
           <h2 className="mt-5 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-            Seven healthcare categories, one structured range
+            Healthcare categories, one structured range
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
             Each category is a distinct block within the portfolio, with its own packaging identity
@@ -176,7 +176,7 @@ export default function HomePage() {
               The complete portfolio in one place
             </h3>
             <p className="mt-4 text-sm leading-relaxed text-charcoal-foreground/70">
-              Browse all {products.length} products, filter by category and shortlist the
+              Browse the full range of products, filter by category and shortlist the
               presentations relevant to your market.
             </p>
             <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary">
@@ -306,7 +306,7 @@ export default function HomePage() {
           <div className="flex flex-col justify-end gap-6">
             <ul className="grid gap-4 sm:grid-cols-3">
               {[
-                { t: "Portfolio breadth", d: `${products.length} products, ${categories.length} categories` },
+                { t: "Portfolio breadth", d: "Products across multiple healthcare categories" },
                 { t: "Partner channels", d: "Distribution, import, wholesale, retail" },
                 { t: "Single point of contact", d: "One team for every enquiry" },
               ].map((f) => (
@@ -319,13 +319,13 @@ export default function HomePage() {
             <div className="flex flex-wrap gap-3">
               <Link
                 to="/global-business"
-                className="inline-flex items-center gap-2 rounded-full bg-background px-7 py-3.5 text-sm font-semibold text-primary"
+                className="inline-flex items-center gap-2 rounded-full bg-background px-7 py-3.5 text-sm font-semibold text-primary transition-transform hover:scale-[1.02]"
               >
                 Global business <ArrowRight className="size-4" aria-hidden />
               </Link>
               <Link
                 to="/business-partnership"
-                className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/40 px-7 py-3.5 text-sm font-semibold"
+                className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/40 px-7 py-3.5 text-sm font-semibold transition-colors hover:border-primary-foreground hover:bg-primary-foreground/10"
               >
                 Partner with us
               </Link>

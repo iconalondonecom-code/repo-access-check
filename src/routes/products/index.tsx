@@ -14,7 +14,7 @@ export const Route = createFileRoute("/products/")({
       {
         name: "description",
         content:
-          "Browse the complete Ronfit Forte healthcare portfolio across seven categories — infant nutrition, paediatric, cold and flu, cough, pain relief, topical care and dermatology.",
+          "Browse the complete Ronfit Forte healthcare portfolio across multiple categories — infant nutrition, paediatric, cold and flu, cough, pain relief, topical care and dermatology.",
       },
       { property: "og:title", content: "Healthcare Product Portfolio | Ronfit Forte" },
       {
@@ -38,7 +38,7 @@ function ProductsPage() {
       <PageHero
         eyebrow="Portfolio"
         title="The complete Ronfit Forte product range"
-        intro={`${products.length} products across ${categories.length} healthcare categories, presented for distributors, importers, wholesalers, pharmacy networks and retail chains. No pricing is published — commercial terms are discussed directly with each partner.`}
+        intro="Products across multiple healthcare categories, presented for distributors, importers, wholesalers, pharmacy networks and retail chains. No pricing is published — commercial terms are discussed directly with each partner."
       />
 
       <section className="container-page py-14">

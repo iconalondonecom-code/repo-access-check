@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { PageHero } from "@/components/site/PageHero";
 import { EnquiryCTA } from "@/components/site/EnquiryCTA";
-import { categories, products } from "@/lib/catalog";
 import { canonicalUrl, site } from "@/lib/site";
 import { brandStory, lifeStages, groupBg } from "@/lib/assets";
 
@@ -13,7 +12,7 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Ronfit Forte is the healthcare brand of Ronak Group, presenting a structured seven-category portfolio to distributors, importers and pharmacy networks worldwide.",
+          "Ronfit Forte is the healthcare brand of Ronak Group, presenting a structured healthcare portfolio across multiple categories to distributors, importers and pharmacy networks worldwide.",
       },
       { property: "og:title", content: "About Ronfit Forte | A Brand of Ronak Group" },
       {
@@ -57,7 +56,7 @@ function AboutPage() {
             A healthcare brand built to be <span className="text-primary">partnered with</span>
           </>
         }
-        intro={`Ronfit Forte is the healthcare brand of ${site.parent.name}, based in ${site.address.city}, ${site.address.country}. The portfolio spans ${products.length} products across ${categories.length} categories and is presented for international business partners rather than direct consumer sale.`}
+        intro={`Ronfit Forte is the healthcare brand of ${site.parent.name}, based in ${site.address.city}, ${site.address.country}. The portfolio spans products across multiple healthcare categories and is presented for international business partners rather than direct consumer sale.`}
         image={{ url: brandStory.url, alt: "Ronfit Forte brand and packaging system" }}
         variant="banner"
       />

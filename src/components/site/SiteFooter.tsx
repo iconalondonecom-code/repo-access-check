@@ -3,7 +3,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 
 import { categories } from "@/lib/catalog";
 import { mainNav, site } from "@/lib/site";
-import { logo } from "@/lib/assets";
+import { logo, groupLogo } from "@/lib/assets";
 
 export function SiteFooter() {
   return (
@@ -16,7 +16,7 @@ export function SiteFooter() {
             width={180}
             height={54}
             loading="lazy"
-            className="h-10 w-auto brightness-0 invert"
+            className="h-16 w-auto brightness-0 invert"
           />
           <p className="mt-4 text-sm text-charcoal-foreground/70">{site.tagline}</p>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-charcoal-foreground/60">
@@ -24,6 +24,19 @@ export function SiteFooter() {
             management, topical care and dermatology — presented for international business
             partners.
           </p>
+          <div className="mt-6 inline-flex items-center gap-3 rounded-2xl bg-charcoal-foreground px-4 py-3">
+            <span className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-charcoal/60">
+              A brand of
+            </span>
+            <img
+              src={groupLogo.url}
+              alt={`${site.parent.name} logo`}
+              width={420}
+              height={160}
+              loading="lazy"
+              className="h-9 w-auto object-contain"
+            />
+          </div>
         </div>
 
         <nav aria-label="Quick links">

@@ -47,7 +47,7 @@ function InsightsPage() {
           <Link
             to="/insights/$slug"
             params={{ slug: lead.slug }}
-            className="group grid gap-8 overflow-hidden rounded-[2.5rem] border border-border bg-card transition-shadow hover:shadow-lift lg:grid-cols-2"
+            className="group grid gap-8 overflow-hidden rounded-[2.5rem] border border-border bg-card transition-all duration-500 hover:-translate-y-1 hover:shadow-lift lg:grid-cols-2"
           >
             <img
               src={lead.image}
@@ -78,7 +78,7 @@ function InsightsPage() {
               key={a.slug}
               to="/insights/$slug"
               params={{ slug: a.slug }}
-              className="group flex flex-col overflow-hidden rounded-[1.75rem] border border-border bg-card transition-shadow hover:shadow-lift"
+              className="group flex flex-col overflow-hidden rounded-[1.75rem] border border-border bg-card transition-all duration-500 hover:-translate-y-1 hover:shadow-lift"
             >
               <img
                 src={a.image}
