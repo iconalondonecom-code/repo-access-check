@@ -112,7 +112,7 @@ export default function HomePage() {
           Ronfit Forte — Trusted Global B2B Healthcare Product Portfolio
         </h1>
         <div aria-hidden className="brand-swoosh -z-10 hidden opacity-[0.14] lg:block" />
-        <div className="container-page relative py-14 lg:py-20">
+        <div className="container-page relative pb-14 pt-4 lg:pb-20 lg:pt-6">
           <HeroCarousel slides={heroSlides} />
         </div>
       </section>
