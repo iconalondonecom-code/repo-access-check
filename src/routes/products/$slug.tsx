@@ -4,7 +4,8 @@ import { Breadcrumbs } from "@/components/site/PageHero";
 import { ProductCard } from "@/components/site/ProductCard";
 import { EnquiryCTA } from "@/components/site/EnquiryCTA";
 import { getCategory, getProduct, relatedProducts } from "@/lib/catalog";
-import { site, whatsappLink } from "@/lib/site";
+import { absoluteAsset, canonicalUrl, site, whatsappLink } from "@/lib/site";
+import { breadcrumbSchema, productSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/products/$slug")({
   loader: ({ params }) => {
@@ -20,6 +21,24 @@ export const Route = createFileRoute("/products/$slug")({
           { name: "description", content: loaderData.product.summary.slice(0, 158) },
           { property: "og:title", content: `${loaderData.product.name} | Ronfit Forte` },
           { property: "og:description", content: loaderData.product.summary.slice(0, 158) },
+          {
+            property: "og:url",
+            content: canonicalUrl(`/products/${loaderData.product.slug}`),
+          },
+          { property: "og:image", content: absoluteAsset(loaderData.product.image) },
+        ]
+      : [],
+    links: loaderData
+      ? [{ rel: "canonical", href: canonicalUrl(`/products/${loaderData.product.slug}`) }]
+      : [],
+    scripts: loaderData
+      ? [
+          productSchema(loaderData.product, loaderData.category),
+          breadcrumbSchema([
+            { label: "Home", path: "/" },
+            { label: "Products", path: "/products" },
+            { label: loaderData.product.name },
+          ]),
         ]
       : [],
   }),

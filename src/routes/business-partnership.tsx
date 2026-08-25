@@ -3,6 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { EnquiryCTA } from "@/components/site/EnquiryCTA";
 import { categories } from "@/lib/catalog";
+import { canonicalUrl } from "@/lib/site";
 import { partnershipBg } from "@/lib/assets";
 
 export const Route = createFileRoute("/business-partnership")({
@@ -20,7 +21,9 @@ export const Route = createFileRoute("/business-partnership")({
         content:
           "What Ronfit Forte brings to distributor and importer partnerships, and how to begin a territory discussion.",
       },
+      { property: "og:url", content: canonicalUrl("/business-partnership") },
     ],
+    links: [{ rel: "canonical", href: canonicalUrl("/business-partnership") }],
   }),
   component: PartnershipPage,
 });

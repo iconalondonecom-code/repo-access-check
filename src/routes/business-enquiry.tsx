@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { PageHero } from "@/components/site/PageHero";
 import { EnquiryForm } from "@/components/site/EnquiryForm";
-import { site, whatsappLink } from "@/lib/site";
+import { canonicalUrl, site, whatsappLink } from "@/lib/site";
 
 export const Route = createFileRoute("/business-enquiry")({
   head: () => ({
@@ -20,10 +20,10 @@ export const Route = createFileRoute("/business-enquiry")({
           "Start a distributor, importer or pharmacy network conversation with the Ronfit Forte partner team.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://repo-scan-pal.lovable.app/business-enquiry" },
+      { property: "og:url", content: canonicalUrl("/business-enquiry") },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://repo-scan-pal.lovable.app/business-enquiry" }],
+    links: [{ rel: "canonical", href: canonicalUrl("/business-enquiry") }],
   }),
   component: EnquiryPage,
 });

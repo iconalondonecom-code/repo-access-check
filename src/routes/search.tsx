@@ -22,6 +22,10 @@ export const Route = createFileRoute("/search")({
         property: "og:description",
         content: "Find products, categories and articles across the Ronfit Forte website.",
       },
+      // Search results are dynamic/duplicative of the products & insights
+      // pages, so this page is excluded from indexing rather than given a
+      // canonical URL.
+      { name: "robots", content: "noindex, follow" },
     ],
   }),
   component: SearchPage,

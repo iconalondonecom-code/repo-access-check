@@ -5,6 +5,18 @@
  * (Theme Options / ACF options page). No component hardcodes contact details.
  */
 
+// Production origin + base path for this deployment (GitHub Pages).
+// Keep SITE_URL's path in sync with the `base` in vite.config.ts.
+export const SITE_ORIGIN = "https://iconalondonecom-code.github.io";
+export const SITE_URL = `${SITE_ORIGIN}/repo-access-check`;
+
+/** Absolute canonical / og:url for a router path, e.g. "/" or "/about". */
+export const canonicalUrl = (path: string) =>
+  path === "/" ? `${SITE_URL}/` : `${SITE_URL}${path}`;
+
+/** Turns a root-relative asset url (already base-prefixed) into an absolute URL. */
+export const absoluteAsset = (url: string) => `${SITE_ORIGIN}${url}`;
+
 export const site = {
   name: "Ronfit Forte",
   legalName: "Ronfit Forte",

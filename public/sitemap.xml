@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Static sitemap for the Ronfit Forte site (fully prerendered, no server).
+  If products, categories or insight articles are added/removed in
+  src/lib/catalog.ts or src/lib/insights.ts, update this file's URL list to
+  match — it is not generated automatically.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/about</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/global-business</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/business-partnership</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/insights</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/contact</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/business-enquiry</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/privacy-policy</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/terms-and-conditions</loc></url>
+
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/product-category/infant-nutrition</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/product-category/paediatric-care</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/product-category/cold-flu-nasal-care</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/product-category/cough-throat-care</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/product-category/pain-fever-headache</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/product-category/topical-pain-relief</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/product-category/skin-dermatology</loc></url>
+
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-baby-stage-1</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-baby-stage-2</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-baby-stage-3</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-junior</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-c-junior-syrup</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-cold-p-syrup</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-cold</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-cold-extra</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-cold-w</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-cold-d-syrup</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-cold-forte-syrup</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-cold-forte-inhaler</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-cold-flu-night-tablets</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-cold-influenza</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-cold-flu-lozenges</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-c-syrup</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-c-forte</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-forte</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-forte-pain-fever-headache-tablet</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-par</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-extra</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-plus</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-plus-effective-relief</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-forte-quick-relief</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-forte-pain-gel-30g</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-forte-pain-gel-50g</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-forte-ice-cold-gel-super-strength</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-forte-ice-cold-gel-extra-strong</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-forte-ice-cold-gel-aloe-vera</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-forte-ice-cold-gel-menthol</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-forte-spray-instant-pain-relief</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-forte-cold-pain-relief-balm</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-triple-action-cream</loc></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/products/ronfit-triple-action-dusting-powder</loc></url>
+
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/insights/what-distributors-look-for-in-a-healthcare-brand</loc><lastmod>2026-08-04</lastmod></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/insights/structuring-a-healthcare-portfolio-by-category</loc><lastmod>2026-07-28</lastmod></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/insights/why-packaging-consistency-builds-brand-trust</loc><lastmod>2026-07-19</lastmod></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/insights/cold-and-flu-category-planning-for-buyers</loc><lastmod>2026-07-08</lastmod></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/insights/cough-and-throat-care-format-mix</loc><lastmod>2026-06-26</lastmod></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/insights/infant-nutrition-stage-based-ranges</loc><lastmod>2026-06-14</lastmod></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/insights/paediatric-care-presentation-standards</loc><lastmod>2026-06-02</lastmod></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/insights/topical-pain-relief-in-modern-trade</loc><lastmod>2026-05-21</lastmod></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/insights/dermatology-adjacent-daily-care-ranges</loc><lastmod>2026-05-09</lastmod></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/insights/preparing-for-a-first-b2b-healthcare-enquiry</loc><lastmod>2026-04-27</lastmod></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/insights/healthcare-across-life-stages</loc><lastmod>2026-04-15</lastmod></url>
+  <url><loc>https://iconalondonecom-code.github.io/repo-access-check/insights/working-with-a-brand-backed-by-a-group</loc><lastmod>2026-04-02</lastmod></url>
+</urlset>

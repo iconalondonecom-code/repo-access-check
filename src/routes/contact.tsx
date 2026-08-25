@@ -3,7 +3,7 @@ import { Mail, MessageCircle, Phone } from "lucide-react";
 
 import { PageHero } from "@/components/site/PageHero";
 import { EnquiryForm } from "@/components/site/EnquiryForm";
-import { site, whatsappLink } from "@/lib/site";
+import { canonicalUrl, site, whatsappLink } from "@/lib/site";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -21,10 +21,10 @@ export const Route = createFileRoute("/contact")({
           "Business enquiry form plus email, phone and WhatsApp contact for the Ronfit Forte partner team.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://repo-scan-pal.lovable.app/contact" },
+      { property: "og:url", content: canonicalUrl("/contact") },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://repo-scan-pal.lovable.app/contact" }],
+    links: [{ rel: "canonical", href: canonicalUrl("/contact") }],
   }),
   component: ContactPage,
 });

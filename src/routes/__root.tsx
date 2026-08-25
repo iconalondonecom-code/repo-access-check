@@ -15,6 +15,9 @@ import { Toaster } from "@/components/ui/sonner";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
+import { ogImage } from "@/lib/assets";
+import { absoluteAsset } from "@/lib/site";
+import { organizationSchema } from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -90,7 +93,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: "Ronfit Forte" },
       { property: "og:site_name", content: "Ronfit Forte" },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "en_US" },
+      { property: "og:image", content: absoluteAsset(ogImage.url) },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: absoluteAsset(ogImage.url) },
+      { name: "theme-color", content: "#ffffff" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -102,6 +111,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Manrope:wght@400;500;600;700&display=swap",
       },
     ],
+    scripts: [organizationSchema()],
   }),
   shellComponent: RootShell,
   component: RootComponent,

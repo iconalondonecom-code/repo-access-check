@@ -4,6 +4,8 @@ import { Breadcrumbs, PageHero } from "@/components/site/PageHero";
 import { ProductCard } from "@/components/site/ProductCard";
 import { EnquiryCTA } from "@/components/site/EnquiryCTA";
 import { categories, getCategory, productsByCategory } from "@/lib/catalog";
+import { absoluteAsset, canonicalUrl } from "@/lib/site";
+import { breadcrumbSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/product-category/$slug")({
   loader: ({ params }) => {
@@ -18,6 +20,28 @@ export const Route = createFileRoute("/product-category/$slug")({
           { name: "description", content: loaderData.category.seoDescription },
           { property: "og:title", content: loaderData.category.seoTitle },
           { property: "og:description", content: loaderData.category.seoDescription },
+          {
+            property: "og:url",
+            content: canonicalUrl(`/product-category/${loaderData.category.slug}`),
+          },
+          { property: "og:image", content: absoluteAsset(loaderData.category.image) },
+        ]
+      : [],
+    links: loaderData
+      ? [
+          {
+            rel: "canonical",
+            href: canonicalUrl(`/product-category/${loaderData.category.slug}`),
+          },
+        ]
+      : [],
+    scripts: loaderData
+      ? [
+          breadcrumbSchema([
+            { label: "Home", path: "/" },
+            { label: "Products", path: "/products" },
+            { label: loaderData.category.name },
+          ]),
         ]
       : [],
   }),
@@ -39,6 +63,8 @@ function CategoryPage() {
         title={category.name}
         intro={category.intro}
         image={{ url: category.image, alt: category.imageAlt }}
+        variant="banner"
+        imageAlign="right"
       />
 
       <section className="container-page py-14">

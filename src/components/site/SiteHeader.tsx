@@ -12,7 +12,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/90 backdrop-blur-md">
-      <div className="container-page flex h-20 items-center justify-between gap-4 md:h-24">
+      <div className="container-page flex h-28 items-center justify-between gap-4 md:h-32 lg:h-36">
         <Logo />
 
         <nav aria-label="Main navigation" className="hidden items-center gap-1 lg:flex">
@@ -27,7 +27,7 @@ export function SiteHeader() {
                 <Link
                   to={item.to}
                   className="flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground"
-                  activeProps={{ className: "text-primary" }}
+                  activeProps={{ className: "font-semibold text-primary" }}
                   aria-expanded={productsOpen}
                   onFocus={() => setProductsOpen(true)}
                 >
@@ -76,7 +76,7 @@ export function SiteHeader() {
                 key={item.label}
                 to={item.to}
                 className="rounded-full px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground"
-                activeProps={{ className: "text-primary" }}
+                activeProps={{ className: "font-semibold text-primary" }}
                 activeOptions={{ exact: item.to === "/" }}
               >
                 {item.label}
@@ -126,7 +126,7 @@ export function SiteHeader() {
                 to={item.to}
                 onClick={() => setOpen(false)}
                 className="rounded-2xl px-4 py-3 text-base font-medium text-foreground transition-colors hover:bg-secondary"
-                activeProps={{ className: "text-primary" }}
+                activeProps={{ className: "font-semibold text-primary" }}
                 activeOptions={{ exact: item.to === "/" }}
               >
                 {item.label}

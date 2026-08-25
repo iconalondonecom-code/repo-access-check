@@ -3,7 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { EnquiryCTA } from "@/components/site/EnquiryCTA";
 import { categories, products } from "@/lib/catalog";
-import { site } from "@/lib/site";
+import { canonicalUrl, site } from "@/lib/site";
 import { brandStory, lifeStages, groupBg } from "@/lib/assets";
 
 export const Route = createFileRoute("/about")({
@@ -21,7 +21,9 @@ export const Route = createFileRoute("/about")({
         content:
           "How Ronfit Forte structures its healthcare portfolio and works with international business partners.",
       },
+      { property: "og:url", content: canonicalUrl("/about") },
     ],
+    links: [{ rel: "canonical", href: canonicalUrl("/about") }],
   }),
   component: AboutPage,
 });
@@ -57,6 +59,7 @@ function AboutPage() {
         }
         intro={`Ronfit Forte is the healthcare brand of ${site.parent.name}, based in ${site.address.city}, ${site.address.country}. The portfolio spans ${products.length} products across ${categories.length} categories and is presented for international business partners rather than direct consumer sale.`}
         image={{ url: brandStory.url, alt: "Ronfit Forte brand and packaging system" }}
+        variant="banner"
       />
 
       <section className="container-page grid gap-10 py-16 lg:grid-cols-2">

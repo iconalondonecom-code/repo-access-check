@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { PageHero } from "@/components/site/PageHero";
-import { site } from "@/lib/site";
+import { canonicalUrl, site } from "@/lib/site";
 
 export const Route = createFileRoute("/terms-and-conditions")({
   head: () => ({
@@ -17,7 +17,9 @@ export const Route = createFileRoute("/terms-and-conditions")({
         property: "og:description",
         content: "Terms of use for the Ronfit Forte website and business enquiries.",
       },
+      { property: "og:url", content: canonicalUrl("/terms-and-conditions") },
     ],
+    links: [{ rel: "canonical", href: canonicalUrl("/terms-and-conditions") }],
   }),
   component: TermsPage,
 });

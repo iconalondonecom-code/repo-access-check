@@ -5,6 +5,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { ProductCard } from "@/components/site/ProductCard";
 import { EnquiryCTA } from "@/components/site/EnquiryCTA";
 import { categories, products, type CategorySlug } from "@/lib/catalog";
+import { canonicalUrl } from "@/lib/site";
 
 export const Route = createFileRoute("/products/")({
   head: () => ({
@@ -21,7 +22,9 @@ export const Route = createFileRoute("/products/")({
         content:
           "The complete Ronfit Forte product range, organised by therapeutic category for distributors and importers.",
       },
+      { property: "og:url", content: canonicalUrl("/products") },
     ],
+    links: [{ rel: "canonical", href: canonicalUrl("/products") }],
   }),
   component: ProductsPage,
 });

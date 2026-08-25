@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { PageHero } from "@/components/site/PageHero";
-import { site } from "@/lib/site";
+import { canonicalUrl, site } from "@/lib/site";
 
 export const Route = createFileRoute("/privacy-policy")({
   head: () => ({
@@ -17,7 +17,9 @@ export const Route = createFileRoute("/privacy-policy")({
         property: "og:description",
         content: "How Ronfit Forte handles business enquiry information.",
       },
+      { property: "og:url", content: canonicalUrl("/privacy-policy") },
     ],
+    links: [{ rel: "canonical", href: canonicalUrl("/privacy-policy") }],
   }),
   component: PrivacyPage,
 });

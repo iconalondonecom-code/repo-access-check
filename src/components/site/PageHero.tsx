@@ -8,6 +8,15 @@ interface PageHeroProps {
   image?: { url: string; alt: string };
   /** "split" keeps text and image side by side; "banner" uses the image as a large full-width background. */
   variant?: "split" | "banner";
+  /**
+   * Banner image framing. "cover" (default) fills the banner, cropping as
+   * needed. "right" anchors the image at its natural aspect ratio to the
+   * right edge with zero cropping — for source images composed with empty
+   * space on the left and the product cluster on the right, so nothing is
+   * ever cropped out; the charcoal background/gradient shows through on the
+   * left instead.
+   */
+  imageAlign?: "cover" | "right";
   children?: ReactNode;
 }
 
@@ -17,6 +26,7 @@ export function PageHero({
   intro,
   image,
   variant = "split",
+  imageAlign = "cover",
   children,
 }: PageHeroProps) {
   if (image && variant === "banner") {
@@ -27,7 +37,11 @@ export function PageHero({
           alt={image.alt}
           width={2000}
           height={1000}
-          className="absolute inset-0 size-full object-cover"
+          className={
+            imageAlign === "right"
+              ? "absolute inset-y-0 right-0 h-full w-auto max-w-none object-contain"
+              : "absolute inset-0 size-full object-cover"
+          }
         />
         <div
           aria-hidden

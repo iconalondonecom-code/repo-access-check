@@ -3,6 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { EnquiryCTA } from "@/components/site/EnquiryCTA";
 import { insights } from "@/lib/insights";
+import { canonicalUrl } from "@/lib/site";
 
 export const Route = createFileRoute("/insights/")({
   head: () => ({
@@ -19,7 +20,9 @@ export const Route = createFileRoute("/insights/")({
         content:
           "Commentary on healthcare distribution, portfolio strategy and category planning for business partners.",
       },
+      { property: "og:url", content: canonicalUrl("/insights") },
     ],
+    links: [{ rel: "canonical", href: canonicalUrl("/insights") }],
   }),
   component: InsightsPage,
 });

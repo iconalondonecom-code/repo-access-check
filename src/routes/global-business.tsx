@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { PageHero } from "@/components/site/PageHero";
 import { EnquiryCTA } from "@/components/site/EnquiryCTA";
-import { businessTypes } from "@/lib/site";
+import { businessTypes, canonicalUrl } from "@/lib/site";
 import { globalBg } from "@/lib/assets";
 
 export const Route = createFileRoute("/global-business")({
@@ -20,7 +20,9 @@ export const Route = createFileRoute("/global-business")({
         content:
           "How Ronfit Forte approaches international partner conversations with distributors, importers and pharmacy networks.",
       },
+      { property: "og:url", content: canonicalUrl("/global-business") },
     ],
+    links: [{ rel: "canonical", href: canonicalUrl("/global-business") }],
   }),
   component: GlobalBusinessPage,
 });

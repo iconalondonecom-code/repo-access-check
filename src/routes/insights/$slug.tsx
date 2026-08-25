@@ -3,6 +3,8 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/site/PageHero";
 import { EnquiryCTA } from "@/components/site/EnquiryCTA";
 import { getInsight, relatedInsights } from "@/lib/insights";
+import { absoluteAsset, canonicalUrl } from "@/lib/site";
+import { articleSchema, breadcrumbSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/insights/$slug")({
   loader: ({ params }) => {
@@ -18,6 +20,25 @@ export const Route = createFileRoute("/insights/$slug")({
           { property: "og:title", content: loaderData.insight.seoTitle },
           { property: "og:description", content: loaderData.insight.seoDescription },
           { property: "og:type", content: "article" },
+          { property: "article:published_time", content: loaderData.insight.date },
+          {
+            property: "og:url",
+            content: canonicalUrl(`/insights/${loaderData.insight.slug}`),
+          },
+          { property: "og:image", content: absoluteAsset(loaderData.insight.image) },
+        ]
+      : [],
+    links: loaderData
+      ? [{ rel: "canonical", href: canonicalUrl(`/insights/${loaderData.insight.slug}`) }]
+      : [],
+    scripts: loaderData
+      ? [
+          articleSchema(loaderData.insight),
+          breadcrumbSchema([
+            { label: "Home", path: "/" },
+            { label: "Insights", path: "/insights" },
+            { label: loaderData.insight.title },
+          ]),
         ]
       : [],
   }),
