@@ -18,14 +18,14 @@ export function SiteFooter() {
     <footer className="mt-24 bg-charcoal text-charcoal-foreground curve-top">
       <div className="container-page grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4 lg:py-20">
         <div>
-          <div className="flex h-20 w-60 items-center justify-start rounded-2xl bg-charcoal-foreground px-5">
+          <div className="flex h-20 w-72 items-center justify-start rounded-2xl bg-charcoal-foreground px-5">
             <img
               src={logo.url}
               alt="Ronfit Forte logo"
               width={180}
               height={54}
               loading="lazy"
-              className="h-14 w-auto object-contain object-left"
+              className="h-16 w-auto object-contain object-left"
             />
           </div>
           <p className="mt-4 text-sm text-charcoal-foreground/70">{site.tagline}</p>
