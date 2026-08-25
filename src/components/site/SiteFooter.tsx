@@ -2,8 +2,16 @@ import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 import { categories } from "@/lib/catalog";
-import { mainNav, site } from "@/lib/site";
+import { mainNav, insightsNav, site } from "@/lib/site";
 import { logo, groupLogo } from "@/lib/assets";
+
+// Insights isn't in the header's nav (kept off to fit on one line) but
+// still belongs in the footer's Quick Links, in its original position.
+const footerQuickLinks = [
+  ...mainNav.filter((item) => item.label !== "Contact"),
+  insightsNav,
+  ...mainNav.filter((item) => item.label === "Contact"),
+];
 
 export function SiteFooter() {
   return (
@@ -44,7 +52,7 @@ export function SiteFooter() {
             Quick Links
           </h2>
           <ul className="mt-4 space-y-2.5">
-            {mainNav.map((item) => (
+            {footerQuickLinks.map((item) => (
               <li key={item.label}>
                 <Link
                   to={item.to}

@@ -24,22 +24,22 @@ export function SiteHeader() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/90 backdrop-blur-md">
-      <div className="container-page flex h-28 items-center justify-between gap-4 md:h-32 lg:h-36">
+    <header className="sticky top-0 z-[60] border-b border-border/60 bg-background">
+      <div className="mx-auto flex h-24 w-full max-w-[100rem] items-center justify-between gap-3 px-4 sm:h-28 sm:px-5 md:h-32 lg:h-36">
         <Logo />
 
-        <nav aria-label="Main navigation" className="hidden items-center gap-1 lg:flex">
+        <nav aria-label="Main navigation" className="hidden flex-nowrap items-center gap-1 xl:flex">
           {mainNav.map((item) =>
             item.label === "Products" ? (
               <div
                 key={item.label}
-                className="relative inline-flex items-center"
+                className="relative inline-flex shrink-0 items-center"
                 onMouseEnter={() => setProductsOpen(true)}
                 onMouseLeave={() => setProductsOpen(false)}
               >
                 <Link
                   to={item.to}
-                  className="inline-flex items-center gap-1 self-center rounded-full px-3 py-2 text-sm font-semibold leading-none text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground"
+                  className="inline-flex shrink-0 items-center gap-1 self-center whitespace-nowrap rounded-full px-3 py-2 text-sm font-semibold leading-none text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground"
                   activeProps={{ className: "font-bold text-primary" }}
                   aria-expanded={productsOpen}
                   onFocus={() => setProductsOpen(true)}
@@ -90,7 +90,7 @@ export function SiteHeader() {
               <Link
                 key={item.label}
                 to={item.to}
-                className="inline-flex items-center self-center rounded-full px-3 py-2 text-sm font-semibold leading-none text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground"
+                className="inline-flex shrink-0 items-center self-center whitespace-nowrap rounded-full px-3 py-2 text-sm font-semibold leading-none text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground"
                 activeProps={{ className: "font-bold text-primary" }}
                 activeOptions={{ exact: item.to === "/" }}
               >
@@ -100,7 +100,7 @@ export function SiteHeader() {
           )}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2">
           <div
             className="relative hidden md:block"
             onMouseEnter={() => setLangOpen(true)}
@@ -109,7 +109,7 @@ export function SiteHeader() {
             <button
               type="button"
               onClick={() => setLangOpen((v) => !v)}
-              className="flex items-center gap-1.5 rounded-full border border-border px-3 py-2 text-xs font-medium text-muted-foreground transition-colors hover:bg-secondary"
+              className="flex items-center gap-1.5 whitespace-nowrap rounded-full border border-border px-3 py-2 text-xs font-medium text-muted-foreground transition-colors hover:bg-secondary"
               aria-label="Select language"
               aria-expanded={langOpen}
             >
@@ -144,7 +144,7 @@ export function SiteHeader() {
 
           <Link
             to="/business-enquiry"
-            className="hidden rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft transition-transform hover:scale-[1.02] sm:inline-flex"
+            className="hidden whitespace-nowrap rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft transition-transform hover:scale-[1.02] sm:inline-flex xl:px-5"
           >
             Business Enquiry
           </Link>
@@ -152,7 +152,7 @@ export function SiteHeader() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex size-10 items-center justify-center rounded-full border border-border text-foreground lg:hidden"
+            className="inline-flex size-10 items-center justify-center rounded-full border border-border text-foreground xl:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
           >
@@ -162,7 +162,7 @@ export function SiteHeader() {
       </div>
 
       {open ? (
-        <div className="border-t border-border bg-background lg:hidden">
+        <div className="border-t border-border bg-background xl:hidden">
           <nav aria-label="Mobile navigation" className="container-page flex flex-col gap-1 py-4">
             {mainNav.map((item) => (
               <Link

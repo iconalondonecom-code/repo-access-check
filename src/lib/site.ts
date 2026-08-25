@@ -59,9 +59,12 @@ export const mainNav = [
   { label: "Products", to: "/products" },
   { label: "Global Business", to: "/global-business" },
   { label: "Business Partnership", to: "/business-partnership" },
-  { label: "Insights", to: "/insights" },
   { label: "Contact", to: "/contact" },
 ] as const;
+
+// Insights is not in the header's main nav (kept to 6 items so it fits on
+// one line) — it's linked from the footer's Quick Links instead.
+export const insightsNav = { label: "Insights", to: "/insights" } as const;
 
 export const businessTypes = [
   "Distributor",
