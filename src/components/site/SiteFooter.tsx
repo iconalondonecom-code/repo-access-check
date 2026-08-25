@@ -18,14 +18,14 @@ export function SiteFooter() {
     <footer className="mt-24 bg-charcoal text-charcoal-foreground curve-top">
       <div className="container-page grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4 lg:py-20">
         <div>
-          <div className="inline-flex h-16 items-center rounded-2xl bg-charcoal-foreground px-5">
+          <div className="flex h-20 w-60 items-center justify-start rounded-2xl bg-charcoal-foreground px-5">
             <img
               src={logo.url}
               alt="Ronfit Forte logo"
               width={180}
               height={54}
               loading="lazy"
-              className="h-10 w-auto object-contain"
+              className="h-14 w-auto object-contain object-left"
             />
           </div>
           <p className="mt-4 text-sm text-charcoal-foreground/70">{site.tagline}</p>
@@ -34,8 +34,8 @@ export function SiteFooter() {
             management, topical care and dermatology — presented for international business
             partners.
           </p>
-          <div className="mt-6 inline-flex h-16 items-center gap-3 rounded-2xl bg-charcoal-foreground px-5">
-            <span className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-charcoal/60">
+          <div className="mt-6 flex h-20 w-60 items-center justify-start gap-3 rounded-2xl bg-charcoal-foreground px-5">
+            <span className="shrink-0 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-charcoal/60">
               A brand of
             </span>
             <img
@@ -44,7 +44,7 @@ export function SiteFooter() {
               width={420}
               height={160}
               loading="lazy"
-              className="h-10 w-auto object-contain"
+              className="h-14 w-auto object-contain object-left"
             />
           </div>
         </div>
