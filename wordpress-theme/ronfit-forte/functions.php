@@ -47,6 +47,55 @@ add_filter(
 	}
 );
 
+define( 'RONFIT_SETUP_VERSION', '1' );
+
+/**
+ * Runs every first-time setup step (static pages, front page, posts page,
+ * default menu, Insights seed content, rewrite flush) exactly once.
+ *
+ * This is hooked to BOTH 'after_switch_theme' (the normal case — fires when
+ * you click Activate in Appearance → Themes) AND a guarded 'init' callback
+ * below. The 'init' fallback matters because 'after_switch_theme' only fires
+ * on a genuine theme-switch transition recorded by WordPress core — if the
+ * theme's files were uploaded/extracted directly into wp-content/themes/ and
+ * WordPress simply already considered that theme slug "active" (e.g. after
+ * overwriting an earlier copy of this same theme), that transition never
+ * happens and none of this setup runs, leaving the site with no pages, no
+ * front page, and no seeded content — which looks like a blank/broken site.
+ * The 'init' guard (an option flag) makes setup self-healing: it completes
+ * on the very next page load regardless of how the theme became active, and
+ * never re-runs once done.
+ */
+function ronfit_run_initial_setup() {
+	ronfit_ensure_static_pages();
+	ronfit_ensure_insights_posts_page();
+	ronfit_ensure_front_page();
+
+	if ( function_exists( 'ronfit_seed_default_menu_on_activation' ) ) {
+		ronfit_seed_default_menu_on_activation();
+	}
+	if ( function_exists( 'ronfit_seed_insights_on_activation' ) ) {
+		ronfit_seed_insights_on_activation();
+	}
+	if ( function_exists( 'ronfit_flush_rewrites_on_activation' ) ) {
+		ronfit_flush_rewrites_on_activation();
+	}
+
+	update_option( 'ronfit_setup_complete', RONFIT_SETUP_VERSION );
+}
+add_action( 'after_switch_theme', 'ronfit_run_initial_setup' );
+
+add_action(
+	'init',
+	function () {
+		if ( get_option( 'ronfit_setup_complete' ) === RONFIT_SETUP_VERSION ) {
+			return;
+		}
+		ronfit_run_initial_setup();
+	},
+	20
+);
+
 /**
  * Auto-assign the "Insights" page as the site's Posts Page on activation
  * (if one doesn't already exist), so /insights/ renders home.php immediately
@@ -79,7 +128,7 @@ function ronfit_ensure_insights_posts_page() {
 		update_option( 'page_for_posts', $page_id );
 	}
 }
-add_action( 'after_switch_theme', 'ronfit_ensure_insights_posts_page' );
+// Called from ronfit_run_initial_setup() above — not hooked directly here.
 
 /**
  * Ensure a static front page exists and is selected, so front-page.php
@@ -107,7 +156,7 @@ function ronfit_ensure_front_page() {
 		update_option( 'page_on_front', $page_id );
 	}
 }
-add_action( 'after_switch_theme', 'ronfit_ensure_front_page' );
+// Called from ronfit_run_initial_setup() above — not hooked directly here.
 
 /**
  * Auto-create the theme's static pages (if missing) and assign each one its
@@ -148,4 +197,4 @@ function ronfit_ensure_static_pages() {
 		}
 	}
 }
-add_action( 'after_switch_theme', 'ronfit_ensure_static_pages' );
+// Called from ronfit_run_initial_setup() above — not hooked directly here.

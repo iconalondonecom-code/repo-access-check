@@ -55,4 +55,6 @@ function ronfit_seed_default_menu_on_activation() {
 	$locations['primary']  = $menu_id;
 	set_theme_mod( 'nav_menu_locations', $locations );
 }
-add_action( 'after_switch_theme', 'ronfit_seed_default_menu_on_activation' );
+// Hooked from functions.php's ronfit_run_initial_setup() — not registered
+// directly here, since setup must be able to self-heal on 'init' too (see
+// that function's docblock for why after_switch_theme alone isn't reliable).

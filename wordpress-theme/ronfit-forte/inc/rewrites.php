@@ -102,4 +102,5 @@ function ronfit_flush_rewrites_on_activation() {
 	add_rewrite_rule( '^insights/([^/]+)/?$', 'index.php?name=$matches[1]', 'top' );
 	flush_rewrite_rules();
 }
-add_action( 'after_switch_theme', 'ronfit_flush_rewrites_on_activation' );
+// Hooked from functions.php's ronfit_run_initial_setup() — see that
+// function's docblock for why after_switch_theme alone isn't reliable.

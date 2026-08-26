@@ -303,4 +303,5 @@ function ronfit_seed_insights_on_activation() {
 		}
 	}
 }
-add_action( 'after_switch_theme', 'ronfit_seed_insights_on_activation' );
+// Hooked from functions.php's ronfit_run_initial_setup() — see that
+// function's docblock for why after_switch_theme alone isn't reliable.
