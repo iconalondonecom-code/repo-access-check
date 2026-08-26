@@ -1,0 +1,306 @@
+<?php
+/**
+ * Seeds the 12 Insight articles from src/lib/insights.ts as real, native
+ * WordPress Posts on theme activation — so /insights/ isn't empty on first
+ * install and every article matches the source site exactly, while staying
+ * fully editable in wp-admin afterwards.
+ *
+ * Runs once: each post is looked up by slug first, so re-activating the
+ * theme (or running this twice) never creates duplicates or overwrites
+ * edits the client has since made.
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * @return array<int, array<string, mixed>>
+ */
+function ronfit_insights_seed_data() {
+	return array(
+		array(
+			'slug'  => 'what-distributors-look-for-in-a-healthcare-brand',
+			'title' => 'What Distributors Really Look For in a Healthcare Brand Partner',
+			'date'  => '2026-08-04 09:00:00',
+			'topic' => 'Distribution',
+			'image' => 'ronfit-business-partnership-background.png',
+			'excerpt' => 'Range clarity, consistent packaging and a responsive counterpart matter more to distributors than a long product list.',
+			'body'  => array(
+				"Distributors assess new healthcare brands far more quickly than most suppliers expect. Long before commercial terms are discussed, a buyer is asking a simpler question: can I explain this range to my own sales team in five minutes? A portfolio that answers yes has already cleared the first hurdle.",
+				"Clarity begins with structure. When products are grouped into recognisable therapeutic categories, a distributor can map them onto the shelf sets and buyer conversations they already have. When they are presented as a flat list, every product becomes a separate argument to make.",
+				"Packaging consistency is the second signal. A range that shares a visual system reads as a brand, not a collection of unrelated items. That consistency also reduces friction downstream — pharmacy staff recognise the family, and retail buyers can see how a block of shelf space would look.",
+				"The third factor is responsiveness. Territory requirements, documentation and availability differ from market to market, so distributors expect to have a working conversation rather than read a claim on a website. A single, named point of contact who responds with market-relevant information is often the deciding advantage.",
+				"None of this requires exaggeration. A brand that presents its range honestly, keeps its category logic tight and answers questions promptly gives a distributor exactly what they need to make an internal case.",
+			),
+		),
+		array(
+			'slug'  => 'structuring-a-healthcare-portfolio-by-category',
+			'title' => 'Structuring a Healthcare Portfolio by Category, Not by Product Count',
+			'date'  => '2026-07-28 09:00:00',
+			'topic' => 'Portfolio strategy',
+			'image' => 'ronfit-pain-fever-headache-category.png',
+			'excerpt' => 'Category architecture turns a product list into a portfolio a buyer can evaluate and merchandise.',
+			'body'  => array(
+				"Suppliers often lead with a number: how many products are in the range. Buyers rarely care. What they need to know is which needs the range covers and how those needs are grouped, because grouping is what determines how the products will be bought, stocked and sold.",
+				"A category-first structure gives each product a role. Instead of competing for attention inside one long list, a syrup, a tablet and a topical gel each sit within the therapeutic area a buyer already plans around. That makes gaps visible too, which is useful in a negotiation rather than embarrassing.",
+				"Category structure also improves internal operations. Forecasting, training and catalogue production all become easier when a range has stable, meaningful groupings that do not change every season.",
+				"For international conversations there is an added benefit: categories translate. Terminology and requirements vary, but the underlying grouping of cold and flu, cough, pain relief or topical care is recognisable almost everywhere, which shortens the explanation a partner has to give internally.",
+				"The practical test is simple. If a new team member can look at the portfolio and correctly assign an unfamiliar product to a category on their first attempt, the architecture is doing its job.",
+			),
+		),
+		array(
+			'slug'  => 'why-packaging-consistency-builds-brand-trust',
+			'title' => 'Why Packaging Consistency Builds Trust Faster Than Advertising',
+			'date'  => '2026-07-19 09:00:00',
+			'topic' => 'Brand',
+			'image' => 'ronfit-forte-brand-story.png',
+			'excerpt' => 'A shared pack architecture makes a range recognisable on shelf and easier for retail staff to recommend.',
+			'body'  => array(
+				"In healthcare retail, most purchase decisions happen in front of a shelf, often with a pharmacist or shop assistant guiding the choice. In that moment, recognition matters more than recall of any campaign.",
+				"A consistent pack architecture — shared logo placement, colour discipline, a predictable position for the product descriptor — lets a customer identify a family of products instantly. It also lets them navigate within the family, which is exactly what a stage-based or strength-based range needs.",
+				"For retail staff, consistency reduces the risk of the wrong recommendation. When the differentiating element is always in the same place on the pack, staff can point to it confidently rather than reading the whole front panel each time.",
+				"For distributors, consistency has commercial value: a coherent range can be presented as a block, which is easier to justify in a planogram conversation than several unrelated items competing for individual facings.",
+				"Consistency is not sameness. Within a shared system, each category can carry its own accent so the range remains navigable while still reading as one brand.",
+			),
+		),
+		array(
+			'slug'  => 'cold-and-flu-category-planning-for-buyers',
+			'title' => 'Cold and Flu Category Planning: What Buyers Prepare For',
+			'date'  => '2026-07-08 09:00:00',
+			'topic' => 'Category insight',
+			'image' => 'ronfit-cold-flu-nasal-care-category.png',
+			'excerpt' => 'Seasonal categories reward suppliers who can be discussed early and planned around with confidence.',
+			'body'  => array(
+				"Cold and flu is one of the most planned categories in healthcare retail. Buyers commit to ranges well ahead of demand, which means supplier conversations happen months before the products move.",
+				"That timing shapes what a buyer values. Early clarity on which formats exist within a range — tablets, syrups, inhalers, lozenges — is more useful than detail delivered late, because format mix determines how much shelf space the category will need.",
+				"Format breadth matters for another reason: households rarely need a single presentation. A range that covers different formats supports a fuller basket without asking the buyer to source from multiple suppliers.",
+				"Suppliers can help by being explicit about what is and is not confirmed for a given territory. Buyers plan around certainty; ambiguity gets deferred to the following season.",
+				"The categories that perform best are usually the ones where supplier and buyer agreed the shape of the range early and then simply executed it.",
+			),
+		),
+		array(
+			'slug'  => 'cough-and-throat-care-format-mix',
+			'title' => 'Cough and Throat Care: Why Format Mix Drives the Category',
+			'date'  => '2026-06-26 09:00:00',
+			'topic' => 'Category insight',
+			'image' => 'ronfit-cough-throat-care-category.png',
+			'excerpt' => 'Syrups, lozenges and adult-strength variants each serve a different shopper moment within one category.',
+			'body'  => array(
+				"Cough and throat care looks like a single category on a shelf plan, but shoppers approach it with quite different needs: something for a child at night, something portable for a working day, something stronger for an adult.",
+				"That is why format mix, rather than product count, tends to define how well the category performs. A range that offers syrups alongside lozenges covers more of those moments without duplicating the same presentation.",
+				"For distributors, a mixed-format range simplifies the order file. One supplier conversation can populate several shelf positions, which reduces administrative overhead and improves the commercial case for taking the range on.",
+				"Presentation should make the differences obvious. Where a range includes both junior and adult variants, the distinction belongs on the front of pack in a fixed position so retail staff never have to interpret it.",
+				"Handled well, a cough and throat range becomes a compact, self-explanatory block that buyers can plan and staff can sell.",
+			),
+		),
+		array(
+			'slug'  => 'infant-nutrition-stage-based-ranges',
+			'title' => 'Stage-Based Infant Nutrition Ranges and Why Buyers Prefer Them',
+			'date'  => '2026-06-14 09:00:00',
+			'topic' => 'Category insight',
+			'image' => 'ronfit-infant-nutrition-category.png',
+			'excerpt' => 'Stage structure gives each pack a clear place on shelf and makes forecasting and staff training simpler.',
+			'body'  => array(
+				"Infant nutrition is scrutinised closely by everyone in the chain — importers, pharmacists and parents. Clarity is therefore not a design preference but an operational requirement.",
+				"A stage-based structure delivers that clarity. Each pack corresponds to a defined feeding period, occupies its own place in the sequence and can be discussed as a distinct product record rather than a variant of something else.",
+				"For buyers, stage structure improves forecasting. Demand behaves differently across stages, and separate records make that visible instead of hiding it inside a single aggregate figure.",
+				"For retail teams, the stage number is the whole conversation. When it is the dominant element on the pack, staff can guide a parent to the right product without needing detailed product training.",
+				"Merchandised as a progression, a stage range also communicates something useful about the brand: that it intends to accompany a customer over time rather than sell a single item.",
+			),
+		),
+		array(
+			'slug'  => 'paediatric-care-presentation-standards',
+			'title' => 'Paediatric Ranges: Presentation Standards That Reassure Buyers',
+			'date'  => '2026-06-02 09:00:00',
+			'topic' => 'Category insight',
+			'image' => 'ronfit-paediatric-care-category.png',
+			'excerpt' => 'In paediatric care, unambiguous pack presentation is the feature buyers examine most closely.',
+			'body'  => array(
+				"Paediatric products carry an additional layer of responsibility, and buyers know it. When a range is reviewed, the first thing examined is whether the packaging leaves any room for misinterpretation.",
+				"Clear designation is the core requirement. Where a product is intended for children, that should be legible at a glance and positioned consistently across every pack in the range.",
+				"Consistency across the family also helps avoid the most common retail error: reaching for the adult presentation of a familiar brand. A predictable visual difference between junior and adult variants reduces that risk materially.",
+				"Buyers also value restraint in the claims a supplier makes. Territory-specific requirements govern what may be stated, so a range that presents itself factually and leaves regulatory detail to the partner conversation is easier to take forward.",
+				"Presentation discipline, in this category more than any other, is what earns a second meeting.",
+			),
+		),
+		array(
+			'slug'  => 'topical-pain-relief-in-modern-trade',
+			'title' => 'Topical Pain Relief and the Rise of Modern Trade Shelves',
+			'date'  => '2026-05-21 09:00:00',
+			'topic' => 'Category insight',
+			'image' => 'ronfit-topical-pain-relief-category.png',
+			'excerpt' => 'Gels, sprays and balms sit comfortably in both pharmacy and modern trade, provided the range is coherent.',
+			'body'  => array(
+				"Topical pain relief has moved well beyond the pharmacy counter. Gels, sprays and balms now appear in supermarkets, convenience formats and sports retail, which widens the buyer audience for any supplier in the category.",
+				"That breadth rewards a coherent range. When variants share a pack system and differ in a clearly labelled way — strength, format, added ingredient — the range can be listed in several channels without confusing shoppers.",
+				"Format also affects placement. Sprays and gels suit different display fixtures, so a range that includes both gives a buyer more options when shelf space is constrained.",
+				"For distributors working across channels, the practical benefit is consolidation: one range, one supplier relationship, multiple listings.",
+				"The risk to avoid is variant sprawl. A range where the differences are not immediately visible on pack becomes hard to merchandise, however strong the individual products are.",
+			),
+		),
+		array(
+			'slug'  => 'dermatology-adjacent-daily-care-ranges',
+			'title' => 'Daily Skin Care Ranges Inside a Healthcare Portfolio',
+			'date'  => '2026-05-09 09:00:00',
+			'topic' => 'Category insight',
+			'image' => 'ronfit-skin-dermatology-category.png',
+			'excerpt' => 'Everyday skin and dermatology products extend a healthcare portfolio into repeat-purchase territory.',
+			'body'  => array(
+				"Most healthcare purchases are episodic: a customer buys when a symptom appears. Daily care products behave differently, generating repeat purchase without a triggering event.",
+				"That makes a skin and dermatology block a useful complement to symptom-led categories. It smooths demand across the year and gives a distributor something to sell between seasonal peaks.",
+				"Presentation matters here too. Daily care products are judged partly on how they look in a bathroom cabinet, so pack quality carries more weight than in strictly functional categories.",
+				"Keeping these products inside the same brand system is the key decision. A daily care range that visually belongs to the healthcare portfolio borrows its credibility instead of starting from zero.",
+				"For buyers, the appeal is straightforward: an additional, steadier line item within a supplier relationship they have already established.",
+			),
+		),
+		array(
+			'slug'  => 'preparing-for-a-first-b2b-healthcare-enquiry',
+			'title' => 'Preparing for a First B2B Healthcare Enquiry',
+			'date'  => '2026-04-27 09:00:00',
+			'topic' => 'Partnership',
+			'image' => 'ronfit-global-business-background.png',
+			'excerpt' => 'The most productive first enquiries state the market, the channel and the categories of interest.',
+			'body'  => array(
+				"A first enquiry sets the pace of everything that follows. When it contains the essentials, a supplier can respond substantively rather than with a list of clarifying questions.",
+				"Three details carry most of the weight: the market you operate in, the channel you serve, and the categories you are interested in. Together they let a supplier judge fit immediately.",
+				"It also helps to state your role clearly — distributor, importer, wholesaler, pharmacy network, retail chain — because the practical next steps differ for each.",
+				"Volume expectations, even as a rough indication, are useful but rarely required at the first exchange. Fit comes first; quantities follow.",
+				"Suppliers that reply with territory-relevant information rather than generic brochures are usually the ones worth continuing with. Making that possible starts with a well-formed enquiry.",
+			),
+		),
+		array(
+			'slug'  => 'healthcare-across-life-stages',
+			'title' => 'Building a Portfolio That Follows Customers Across Life Stages',
+			'date'  => '2026-04-15 09:00:00',
+			'topic' => 'Portfolio strategy',
+			'image' => 'ronfit-healthcare-life-stages.png',
+			'excerpt' => 'A portfolio spanning infancy to adulthood keeps a brand relevant to the same household over decades.',
+			'body'  => array(
+				"Households do not buy by category; they buy by need, and needs change with age. A portfolio that follows those changes stays relevant to the same customer far longer than a single-category range.",
+				"The commercial logic is familiarity. A parent who trusted a brand for infant nutrition has a reason to look for it again in paediatric care, and later in adult pain relief.",
+				"For distributors, life-stage coverage means a broader conversation with the same retail buyer. One supplier relationship can support several shelf sets rather than one.",
+				"The requirement is that the connection is visible. If the packs across life stages do not read as one family, the familiarity advantage disappears.",
+				"Coverage should not be confused with completeness. A portfolio needs enough presence in each stage to be credible, not every possible product.",
+			),
+		),
+		array(
+			'slug'  => 'working-with-a-brand-backed-by-a-group',
+			'title' => 'Working With a Brand Backed by a Larger Group',
+			'date'  => '2026-04-02 09:00:00',
+			'topic' => 'Partnership',
+			'image' => 'ronak-group-section-background.png',
+			'excerpt' => 'Group backing tends to mean settled processes and a single accountable point of contact for partners.',
+			'body'  => array(
+				"When a healthcare brand sits within a larger group, partners often assume the benefit is scale. In practice the more useful benefit is process.",
+				"Established groups tend to have settled ways of handling documentation requests, brand assets and commercial correspondence. For a distributor, that predictability is worth more than any headline claim.",
+				"Accountability is the second advantage. A brand within a group usually has a defined owner for partner relationships, so enquiries do not circulate without resolution.",
+				"It also affects how a brand is presented. Group-backed brands generally maintain a consistent identity across markets, which reduces the work a local partner has to do to make materials usable.",
+				"For Ronfit Forte, this is the practical shape of the relationship: a focused healthcare portfolio, presented consistently, with the process discipline of Ronak Group behind it.",
+			),
+		),
+	);
+}
+
+/**
+ * Copies a theme asset image into the uploads directory and registers it as
+ * a real Media Library attachment, so it behaves like any other featured
+ * image (thumbnails, `the_content()` compatibility, etc.) instead of
+ * pointing at a theme-relative file.
+ *
+ * @param string $theme_filename File under assets/images/site/.
+ * @param string $desc           Attachment title / alt fallback.
+ * @return int Attachment ID, or 0 on failure.
+ */
+function ronfit_sideload_theme_image( $theme_filename, $desc ) {
+	require_once ABSPATH . 'wp-admin/includes/image.php';
+	require_once ABSPATH . 'wp-admin/includes/file.php';
+	require_once ABSPATH . 'wp-admin/includes/media.php';
+
+	$source = get_template_directory() . '/assets/images/site/' . $theme_filename;
+	if ( ! file_exists( $source ) ) {
+		return 0;
+	}
+
+	$upload_dir = wp_upload_dir();
+	if ( ! empty( $upload_dir['error'] ) ) {
+		return 0;
+	}
+
+	$existing = get_page_by_title( $desc, OBJECT, 'attachment' );
+	if ( $existing ) {
+		return $existing->ID;
+	}
+
+	$target_filename = wp_unique_filename( $upload_dir['path'], $theme_filename );
+	$target_path      = trailingslashit( $upload_dir['path'] ) . $target_filename;
+
+	if ( ! copy( $source, $target_path ) ) {
+		return 0;
+	}
+
+	$filetype   = wp_check_filetype( $target_filename, null );
+	$attachment = array(
+		'guid'           => trailingslashit( $upload_dir['url'] ) . $target_filename,
+		'post_mime_type' => $filetype['type'],
+		'post_title'     => $desc,
+		'post_content'   => '',
+		'post_status'    => 'inherit',
+	);
+
+	$attach_id = wp_insert_attachment( $attachment, $target_path );
+	if ( is_wp_error( $attach_id ) || ! $attach_id ) {
+		return 0;
+	}
+
+	$attach_data = wp_generate_attachment_metadata( $attach_id, $target_path );
+	wp_update_attachment_metadata( $attach_id, $attach_data );
+
+	return $attach_id;
+}
+
+/**
+ * Seeds the 12 Insight posts on theme activation. Idempotent: skips any
+ * slug that already exists (whether from a prior activation or client edits).
+ */
+function ronfit_seed_insights_on_activation() {
+	foreach ( ronfit_insights_seed_data() as $entry ) {
+		if ( get_page_by_path( $entry['slug'], OBJECT, 'post' ) ) {
+			continue;
+		}
+
+		$content = implode(
+			"\n\n",
+			array_map(
+				function ( $paragraph ) {
+					return '<p>' . esc_html( $paragraph ) . '</p>';
+				},
+				$entry['body']
+			)
+		);
+
+		$post_id = wp_insert_post(
+			array(
+				'post_title'   => $entry['title'],
+				'post_name'    => $entry['slug'],
+				'post_status'  => 'publish',
+				'post_type'    => 'post',
+				'post_date'    => $entry['date'],
+				'post_content' => $content,
+				'post_excerpt' => $entry['excerpt'],
+			)
+		);
+
+		if ( ! $post_id || is_wp_error( $post_id ) ) {
+			continue;
+		}
+
+		wp_set_post_terms( $post_id, array( $entry['topic'] ), 'category', false );
+
+		$attach_id = ronfit_sideload_theme_image( $entry['image'], $entry['title'] );
+		if ( $attach_id ) {
+			set_post_thumbnail( $post_id, $attach_id );
+		}
+	}
+}
+add_action( 'after_switch_theme', 'ronfit_seed_insights_on_activation' );

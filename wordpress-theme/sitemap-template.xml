@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Static sitemap template for the Ronfit Forte WordPress site.
+
+  1. Replace every "https://www.example.com" below with your real domain.
+  2. Upload the result as /sitemap.xml at your WordPress site's root
+     (e.g. via an SFTP client, or a "server root files" plugin).
+  3. Submit it in Google Search Console / Bing Webmaster Tools.
+
+  This mirrors the source site's own hand-maintained public/sitemap.xml
+  (WordPress's built-in /wp-sitemap.xml already covers Pages/Posts
+  automatically with no manual edits — this file exists to also cover the
+  34 static product pages and 7 category pages, which are not WordPress
+  posts/pages). If a product or category is added or removed in
+  wordpress-theme/ronfit-forte/inc/data-catalog.php, update this file's
+  product/category URLs to match.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.example.com/</loc></url>
+  <url><loc>https://www.example.com/about/</loc></url>
+  <url><loc>https://www.example.com/products/</loc></url>
+  <url><loc>https://www.example.com/global-business/</loc></url>
+  <url><loc>https://www.example.com/business-partnership/</loc></url>
+  <url><loc>https://www.example.com/insights/</loc></url>
+  <url><loc>https://www.example.com/contact/</loc></url>
+  <url><loc>https://www.example.com/business-enquiry/</loc></url>
+  <url><loc>https://www.example.com/privacy-policy/</loc></url>
+  <url><loc>https://www.example.com/terms-and-conditions/</loc></url>
+
+  <url><loc>https://www.example.com/product-category/infant-nutrition/</loc></url>
+  <url><loc>https://www.example.com/product-category/paediatric-care/</loc></url>
+  <url><loc>https://www.example.com/product-category/cold-flu-nasal-care/</loc></url>
+  <url><loc>https://www.example.com/product-category/cough-throat-care/</loc></url>
+  <url><loc>https://www.example.com/product-category/pain-fever-headache/</loc></url>
+  <url><loc>https://www.example.com/product-category/topical-pain-relief/</loc></url>
+  <url><loc>https://www.example.com/product-category/skin-dermatology/</loc></url>
+
+  <url><loc>https://www.example.com/products/ronfit-baby-stage-1/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-baby-stage-2/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-baby-stage-3/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-junior/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-c-junior-syrup/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-cold-p-syrup/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-cold/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-cold-extra/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-cold-w/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-cold-d-syrup/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-cold-forte-syrup/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-cold-forte-inhaler/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-cold-flu-night-tablets/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-cold-influenza/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-cold-flu-lozenges/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-c-syrup/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-c-forte/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-forte/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-forte-pain-fever-headache-tablet/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-par/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-extra/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-plus/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-plus-effective-relief/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-forte-quick-relief/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-forte-pain-gel-30g/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-forte-pain-gel-50g/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-forte-ice-cold-gel-super-strength/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-forte-ice-cold-gel-extra-strong/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-forte-ice-cold-gel-aloe-vera/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-forte-ice-cold-gel-menthol/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-forte-spray-instant-pain-relief/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-forte-cold-pain-relief-balm/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-triple-action-cream/</loc></url>
+  <url><loc>https://www.example.com/products/ronfit-triple-action-dusting-powder/</loc></url>
+
+  <!--
+    The 12 Insight articles below are native WordPress Posts (seeded on theme
+    activation) — once WordPress core's /wp-sitemap.xml is live, these are
+    already covered there automatically. Listed here too only for
+    completeness on search engines that are only given this one file.
+  -->
+  <url><loc>https://www.example.com/insights/what-distributors-look-for-in-a-healthcare-brand/</loc></url>
+  <url><loc>https://www.example.com/insights/structuring-a-healthcare-portfolio-by-category/</loc></url>
+  <url><loc>https://www.example.com/insights/why-packaging-consistency-builds-brand-trust/</loc></url>
+  <url><loc>https://www.example.com/insights/cold-and-flu-category-planning-for-buyers/</loc></url>
+  <url><loc>https://www.example.com/insights/cough-and-throat-care-format-mix/</loc></url>
+  <url><loc>https://www.example.com/insights/infant-nutrition-stage-based-ranges/</loc></url>
+  <url><loc>https://www.example.com/insights/paediatric-care-presentation-standards/</loc></url>
+  <url><loc>https://www.example.com/insights/topical-pain-relief-in-modern-trade/</loc></url>
+  <url><loc>https://www.example.com/insights/dermatology-adjacent-daily-care-ranges/</loc></url>
+  <url><loc>https://www.example.com/insights/preparing-for-a-first-b2b-healthcare-enquiry/</loc></url>
+  <url><loc>https://www.example.com/insights/healthcare-across-life-stages/</loc></url>
+  <url><loc>https://www.example.com/insights/working-with-a-brand-backed-by-a-group/</loc></url>
+</urlset>

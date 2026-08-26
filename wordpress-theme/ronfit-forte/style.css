@@ -1,0 +1,19 @@
+/*
+Theme Name: Ronfit Forte
+Theme URI: https://ronak.global
+Author: Ronak Group
+Author URI: https://ronak.global
+Description: Ronfit Forte healthcare B2B portfolio theme — a pixel-parity WordPress port of the Ronfit Forte site, presenting the brand's product catalogue, categories, insights and business-enquiry pages.
+Version: 1.0.0
+Requires at least: 6.0
+Requires PHP: 7.4
+Tested up to: 6.6
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: ronfit-forte
+*/
+
+/* This file intentionally holds only the WordPress-required theme header
+   above. All visual styling is enqueued from assets/css/main.css (see
+   inc/enqueue.php) so the site loads the exact compiled stylesheet from the
+   source Ronfit Forte build — do not add rules here. */
