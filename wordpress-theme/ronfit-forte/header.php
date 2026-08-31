@@ -17,21 +17,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 <header class="sticky top-0 z-[60] border-b border-border/60 bg-background">
 	<div class="mx-auto flex h-24 w-full max-w-[100rem] items-center justify-between gap-3 px-4 sm:h-28 sm:px-5 md:h-32 lg:h-36">
 		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="inline-flex items-center" aria-label="<?php echo esc_attr( RONFIT_NAME . ' — home' ); ?>">
-			<img src="<?php echo esc_url( ronfit_product_image_url( 'ronfit-forte-logo.png' ) ); ?>" alt="Ronfit Forte logo" width="480" height="144" class="h-20 w-auto sm:h-24 md:h-28 lg:h-32">
+			<img src="<?php echo esc_url( ronfit_site_image_url( 'ronfit-forte-logo.png' ) ); ?>" alt="Ronfit Forte logo" width="480" height="144" class="h-20 w-auto sm:h-24 md:h-28 lg:h-32">
 		</a>
 
 		<nav aria-label="Main navigation" class="hidden flex-nowrap items-center gap-1 xl:flex">
 			<?php foreach ( ronfit_main_nav() as $item ) : ?>
 				<?php if ( 'Products' === $item['label'] ) : ?>
 					<div class="ronfit-products-nav relative inline-flex shrink-0 items-center">
-						<a href="<?php echo esc_url( $item['url'] ); ?>" class="inline-flex shrink-0 items-center gap-1 self-center whitespace-nowrap rounded-full px-3 py-2 text-sm font-semibold leading-none text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground<?php echo ronfit_nav_is_current( $item['url'] ) ? ' font-bold text-primary' : ''; ?>" aria-expanded="false">
+						<a href="<?php echo esc_url( $item['url'] ); ?>" class="inline-flex shrink-0 items-center gap-1 self-center whitespace-nowrap rounded-full px-3 py-2 text-base font-bold leading-none text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground<?php echo ronfit_nav_is_current( $item['url'] ) ? ' text-primary' : ''; ?>" aria-expanded="false">
 							Products
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3.5" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
 						</a>
 						<?php ronfit_mega_menu(); ?>
 					</div>
 				<?php else : ?>
-					<a href="<?php echo esc_url( $item['url'] ); ?>" class="inline-flex shrink-0 items-center self-center whitespace-nowrap rounded-full px-3 py-2 text-sm font-semibold leading-none text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground<?php echo ronfit_nav_is_current( $item['url'] ) ? ' font-bold text-primary' : ''; ?>">
+					<a href="<?php echo esc_url( $item['url'] ); ?>" class="inline-flex shrink-0 items-center self-center whitespace-nowrap rounded-full px-3 py-2 text-base font-bold leading-none text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground<?php echo ronfit_nav_is_current( $item['url'] ) ? ' text-primary' : ''; ?>">
 						<?php echo esc_html( $item['label'] ); ?>
 					</a>
 				<?php endif; ?>

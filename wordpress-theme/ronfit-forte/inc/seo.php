@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return string Absolute URL of the Organization logo image, for JSON-LD.
  */
 function ronfit_logo_absolute_url() {
-	return ronfit_product_image_url( 'ronfit-forte-logo.png' );
+	return ronfit_site_image_url( 'ronfit-forte-logo.png' );
 }
 
 /**

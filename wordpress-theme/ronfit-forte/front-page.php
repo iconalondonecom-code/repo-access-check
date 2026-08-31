@@ -92,7 +92,7 @@ $life_stages_copy = array(
 	<section class="relative overflow-hidden bg-background">
 		<h1 class="sr-only">Ronfit Forte — Trusted Global B2B Healthcare Product Portfolio</h1>
 		<div aria-hidden="true" class="brand-swoosh -z-10 hidden opacity-[0.14] lg:block"></div>
-		<div class="container-page relative pb-14 pt-4 lg:pb-20 lg:pt-6">
+		<div class="mx-auto w-full max-w-[100rem] px-4 sm:px-5 relative pb-14 pt-4 lg:pb-20 lg:pt-6">
 			<?php ronfit_hero_carousel( $hero_slides ); ?>
 		</div>
 	</section>
@@ -217,7 +217,7 @@ $life_stages_copy = array(
 					<a href="<?php echo esc_url( RONFIT_PARENT_URL ); ?>" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent"><?php echo esc_html( RONFIT_PARENT_LABEL ); ?></a>
 				</div>
 			</div>
-			<img src="<?php echo esc_url( ronfit_product_image_url( 'ronak-group-logo.png' ) ); ?>" alt="<?php echo esc_attr( RONFIT_PARENT_NAME . ' logo' ); ?>" width="420" height="160" loading="lazy" class="mx-auto h-20 w-auto object-contain lg:h-24">
+			<img src="<?php echo esc_url( ronfit_site_image_url( 'ronak-group-logo.png' ) ); ?>" alt="<?php echo esc_attr( RONFIT_PARENT_NAME . ' logo' ); ?>" width="420" height="160" loading="lazy" class="mx-auto h-20 w-auto object-contain lg:h-24">
 		</div>
 	</section>
 

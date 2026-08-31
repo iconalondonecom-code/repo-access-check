@@ -33,13 +33,13 @@ if ( $ronfit_contact_item ) {
 	<div class="container-page grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4 lg:py-20">
 		<div>
 			<div class="flex h-20 w-72 items-center justify-start rounded-2xl bg-charcoal-foreground px-5">
-				<img src="<?php echo esc_url( ronfit_product_image_url( 'ronfit-forte-logo.png' ) ); ?>" alt="Ronfit Forte logo" width="180" height="54" loading="lazy" class="h-16 w-auto object-contain object-left">
+				<img src="<?php echo esc_url( ronfit_site_image_url( 'ronfit-forte-logo.png' ) ); ?>" alt="Ronfit Forte logo" width="180" height="54" loading="lazy" class="h-16 w-auto object-contain object-left">
 			</div>
 			<p class="mt-4 text-sm text-charcoal-foreground/70"><?php echo esc_html( RONFIT_TAGLINE ); ?></p>
 			<p class="mt-4 max-w-xs text-sm leading-relaxed text-charcoal-foreground/60">A healthcare portfolio spanning nutrition, paediatric care, cold and flu, pain management, topical care and dermatology — presented for international business partners.</p>
 			<div class="mt-6 flex h-20 w-60 items-center justify-start gap-3 rounded-2xl bg-charcoal-foreground px-5">
 				<span class="shrink-0 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-charcoal/60">A brand of</span>
-				<img src="<?php echo esc_url( ronfit_product_image_url( 'ronak-group-logo.png' ) ); ?>" alt="<?php echo esc_attr( RONFIT_PARENT_NAME . ' logo' ); ?>" width="420" height="160" loading="lazy" class="h-14 w-auto object-contain object-left">
+				<img src="<?php echo esc_url( ronfit_site_image_url( 'ronak-group-logo.png' ) ); ?>" alt="<?php echo esc_attr( RONFIT_PARENT_NAME . ' logo' ); ?>" width="420" height="160" loading="lazy" class="h-14 w-auto object-contain object-left">
 			</div>
 		</div>
 
