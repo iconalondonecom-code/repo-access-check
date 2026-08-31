@@ -1,0 +1,62 @@
+name: Package WordPress theme
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "wordpress-theme/ronfit-forte/**"
+      - ".github/workflows/package-theme.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: package-theme
+  cancel-in-progress: true
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Read theme version
+        id: version
+        run: |
+          version=$(grep -iE '^\s*Version:' wordpress-theme/ronfit-forte/style.css | head -1 | sed -E 's/.*:\s*//' | tr -d '\r')
+          echo "version=${version:-0.0.0}" >> "$GITHUB_OUTPUT"
+
+      - name: Build theme zip
+        run: |
+          mkdir -p dist-theme
+          # Archive with the theme folder at the zip root so WordPress
+          # extracts it straight into wp-content/themes/ronfit-forte/.
+          (cd wordpress-theme && zip -rqX "../dist-theme/ronfit-forte.zip" ronfit-forte -x '*.DS_Store')
+          ls -lh dist-theme/ronfit-forte.zip
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ronfit-forte-theme
+          path: dist-theme/ronfit-forte.zip
+          if-no-files-found: error
+
+      - name: Publish "theme-latest" release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: theme-latest
+          name: Ronfit Forte theme (latest)
+          body: |
+            Deployable Ronfit Forte WordPress theme.
+
+            - Theme version: `${{ steps.version.outputs.version }}`
+            - Source commit: ${{ github.sha }}
+            - Built: ${{ github.run_started_at }}
+
+            Download `ronfit-forte.zip` below and upload it in
+            **wp-admin → Appearance → Themes → Add New → Upload Theme**
+            (confirm "replace the existing files" when prompted).
+          files: dist-theme/ronfit-forte.zip
+          make_latest: true
